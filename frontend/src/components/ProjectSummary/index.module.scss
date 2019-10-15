@@ -1,4 +1,54 @@
 @import "../../variables.scss";
 
-.container {
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: $distanceSmall;
+
+  img {
+    height: 40vh;
+    object-fit: cover;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+
+    padding: $distanceMedium;
+    color: $defaultTextColorLight;
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.75) 0%,
+      #000000 14.58%,
+      #000000 100%
+    );
+
+    .title {
+      padding-bottom: $distanceSmall;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    button {
+      align-self: center;
+      margin-top: $distanceMedium;
+      padding: 0.5rem 2rem;
+
+      color: $highLight;
+      background-color: transparent;
+      border-radius: 50px;
+      border: 2px solid $highLight;
+
+      font-family: "Muli", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 125%;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+  }
 }
