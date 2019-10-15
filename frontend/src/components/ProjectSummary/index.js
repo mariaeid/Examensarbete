@@ -5,10 +5,13 @@ import styles from "./index.module.scss";
 
 const ProjectSummary = props => {
   return (
-    <div className={styles.container}>
+    <div className={styles.card}>
       <img src={props.image} alt={props.title} />
-      <h1>{props.title}</h1>
-      <p>{props.intro}</p>
+      <div className={styles.textContainer}>
+        <p className={styles.title}>{props.title}</p>
+        <p>{props.intro}</p>
+        <button>Läs mer</button>
+      </div>
     </div>
   );
 };
