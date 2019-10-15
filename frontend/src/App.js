@@ -1,20 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Projects from "./components/Projects";
-import TextBox from "./components/TextBox";
+import Home from "./pages/Home";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <TextBox
-          title="Vilka projekt vill ni stötta?"
-          description="Välj ett eller flera av projekten nedan att investera i - valet är fritt."
-        />
-        <Projects />
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <div className="content">
+          <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
+        </div>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
