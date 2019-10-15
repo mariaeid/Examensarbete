@@ -19,3 +19,48 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+h1 {
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+}
+
+h4 {
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+}
+
+p {
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+}
