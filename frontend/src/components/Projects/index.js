@@ -25,7 +25,7 @@ class Projects extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.cardContainer}>
         {this.state.projects.map((project, key) => (
           <ProjectSummary
             key={key}
