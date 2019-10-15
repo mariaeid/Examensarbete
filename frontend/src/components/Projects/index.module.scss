@@ -3,6 +3,7 @@
 .cardContainer {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: nowrap;
   overflow-x: scroll;
   -ms-overflow-style: none;
