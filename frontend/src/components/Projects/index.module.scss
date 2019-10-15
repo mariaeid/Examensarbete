@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  align-items: stretch;
+}
