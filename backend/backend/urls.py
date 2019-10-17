@@ -1,12 +1,16 @@
 from django.contrib import admin
-from django.urls import path, include                 # add this
-from rest_framework import routers                    # add this
-from environmentalProject import views                            # add this
-from django.conf import settings # new
-from django.conf.urls.static import static # new
+from django.urls import path, include
+from rest_framework import routers
+from environmentalProject import views as environmentalProjectViews
+from mainContent import views as mainContentViews
+from steps import views as stepsViews
+from django.conf import settings
+from django.conf.urls.static import static
 
-router = routers.DefaultRouter()                      # add this
-router.register(r'environmentalProjects', views.EnvironmentalProjectView, 'environmentalProject')     # add this
+router = routers.DefaultRouter()
+router.register(r'environmentalProjects', environmentalProjectViews.EnvironmentalProjectView, 'environmentalProject')
+router.register(r'mainContent', mainContentViews.MainContentView, 'mainContent')
+router.register(r'steps', stepsViews.StepsView, 'steps')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
