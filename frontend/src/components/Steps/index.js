@@ -29,6 +29,7 @@ class Steps extends Component {
           <Step
             key={key}
             number={step.number}
+            icon={step.icon}
             title={step.title}
             description={step.description}
           />
