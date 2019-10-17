@@ -8,15 +8,20 @@
 
   .title {
     padding-bottom: $distanceSmall;
+    width: 35%;
 
     color: $defaultTextColorMiddle;
     font-weight: 600;
     font-size: 24px;
+    text-align: center;
   }
 
   .text {
+    width: 50%;
+
     color: $defaultTextColorDark;
     font-weight: normal;
     font-size: 14px;
+    text-align: center;
   }
 }
