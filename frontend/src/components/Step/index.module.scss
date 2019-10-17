@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+
+.textContainer {
+  text-align: center;
+  width: 50%;
+
+  .title {
+    padding-top: $distanceSmall;
+    padding-bottom: $distanceSmall;
+    font-size: 18px;
+  }
+
+  .description {
+  }
+}

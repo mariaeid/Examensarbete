@@ -24,6 +24,7 @@ class Steps extends Component {
   render() {
     return (
       <div className={styles.stepsContainer}>
+        <p className={styles.mainTitle}>Hur går det till?</p>
         {this.state.steps.map((step, key) => (
           <Step
             key={key}
