@@ -1,8 +1,13 @@
 @import "../../variables.scss";
 
-.textContainer {
+.container {
   text-align: center;
   width: 50%;
+
+  img {
+    width: 10%;
+    padding-top: $distanceMedium;
+  }
 
   .title {
     padding-top: $distanceSmall;
@@ -11,5 +16,6 @@
   }
 
   .description {
+    line-height: 140%;
   }
 }
