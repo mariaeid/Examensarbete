@@ -24,6 +24,13 @@ class Home extends Component {
   render() {
     return (
       <div>
+        {this.state.mainContents.map((mainContent, key) => (
+          <TextBox
+            key={key}
+            title={mainContent.titlePart1}
+            description={mainContent.textPart1}
+          />
+        ))}
         <Steps />
         {this.state.mainContents.map((mainContent, key) => (
           <TextBox
