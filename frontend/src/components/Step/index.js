@@ -5,7 +5,8 @@ import styles from "./index.module.scss";
 
 const Step = props => {
   return (
-    <div className={styles.textContainer}>
+    <div className={styles.container}>
+      <img src={props.icon} alt={props.number} />
       <p className={styles.title}>{props.title}</p>
       <p className={styles.description}>{props.description}</p>
     </div>
