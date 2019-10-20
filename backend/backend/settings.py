@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'environmentalProject',
     'mainContent',
     'steps',
+    'core.apps.CoreConfig'
 ]
 
 MIDDLEWARE = [
@@ -104,6 +105,21 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+       'rest_framework.authentication.SessionAuthentication',
+       'rest_framework.authentication.BasicAuthentication',
+   ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser'
+   )
+}
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'backend.utils.my_jwt_response_handler'
+}
 
 
 # Internationalization
