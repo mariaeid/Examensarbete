@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Hero from "../../components/Hero";
 import Steps from "../../components/Steps";
 import Projects from "../../components/Projects";
 import TextBox from "../../components/TextBox";
@@ -24,6 +25,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Hero />
         {this.state.mainContents.map((mainContent, key) => (
           <TextBox
             key={key}
