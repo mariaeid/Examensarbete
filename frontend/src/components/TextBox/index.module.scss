@@ -5,23 +5,21 @@
   flex-direction: column;
   align-items: center;
   padding: $distanceMedium 4rem;
+  text-align: center;
 
   .title {
     padding-bottom: $distanceSmall;
-    width: 35%;
+    width: 50%;
 
     color: $defaultTextColorMiddle;
     font-weight: 600;
     font-size: 24px;
-    text-align: center;
   }
 
   .text {
-    width: 50%;
-
+    width: 70%;
     color: $defaultTextColorDark;
     font-weight: normal;
     font-size: 14px;
-    text-align: center;
   }
 }
