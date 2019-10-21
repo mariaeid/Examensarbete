@@ -10,8 +10,7 @@ class Hero extends Component {
     super(props);
 
     this.state = {
-      videoURL: `${process.env.PUBLIC_URL}/videos/windTurbine.mp4`,
-      logged_in: localStorage.getItem("token") ? true : false
+      videoURL: `${process.env.PUBLIC_URL}/videos/windTurbine.mp4`
     };
   }
 
