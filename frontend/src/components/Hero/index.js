@@ -10,19 +10,15 @@ class Hero extends Component {
     super(props);
 
     this.state = {
-      videoURL: `${process.env.PUBLIC_URL}/videos/windTurbine.mp4`
+      videoURL: `${process.env.PUBLIC_URL}/videos/windTurbine.mp4`,
+      logged_in: localStorage.getItem("token") ? true : false
     };
   }
 
   render() {
     return (
       <div className={styles.container}>
-        <video
-          id="background-video"
-          loop
-          autoPlay
-          // poster={`${process.env.PUBLIC_URL}/images/heroBg.png`}
-        >
+        <video id="background-video" loop autoPlay>
           <source src={this.state.videoURL} type="video/mp4" />
           <source src={this.state.videoURL} type="video/ogg" />
           Your browser does not support the video tag.
