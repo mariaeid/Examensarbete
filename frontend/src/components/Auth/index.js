@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Navbar from "../Navbar";
 import LoginForm from "../LoginForm";
 import SignupForm from "../SignupForm";
+import Projects from "../Projects";
 
 class Auth extends Component {
   constructor(props) {
@@ -100,11 +101,7 @@ class Auth extends Component {
           handle_logout={this.handle_logout}
         />
         {form}
-        <h3>
-          {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : "Please Log In"}
-        </h3>
+        <h3>{this.state.logged_in ? "Welcome" : "Please Log In"}</h3>
       </div>
     );
   }
