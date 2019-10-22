@@ -9,8 +9,8 @@ function App() {
     <Router>
       <div className="App">
         <div className="content">
-          <Auth />
           <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
+          <Auth />
         </div>
       </div>
     </Router>
