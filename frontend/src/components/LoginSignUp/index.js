@@ -22,7 +22,7 @@ class LoginSignUp extends Component {
             this.props.display_form("signup");
           }}
         >
-          Skapa användare
+          Skapa konto
         </button>
       </div>
     );
