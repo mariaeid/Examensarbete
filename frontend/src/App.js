@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Auth from "./components/Auth";
+import User from "./pages/User";
 
 function App() {
   return (
@@ -10,7 +10,11 @@ function App() {
       <div className="App">
         <div className="content">
           <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
-          <Auth />
+          <Route
+            path={`${process.env.PUBLIC_URL}/user`}
+            exact
+            component={User}
+          />
         </div>
       </div>
     </Router>
