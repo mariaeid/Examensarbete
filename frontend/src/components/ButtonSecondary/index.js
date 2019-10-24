@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 
 class ButtonSecondary extends Component {
   render() {
-    return <button className={styles.ButtonSecondary}>Logga in klubb</button>;
+    return <button className={styles.ButtonSecondary}>Skapa konto</button>;
   }
 }
 
