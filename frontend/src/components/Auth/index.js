@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Navbar from "../Navbar";
 import LoginForm from "../LoginForm";
-import SignupFormModal from "../SignupFormModal";
+import SignupForm from "../SignupForm";
 
 class Auth extends Component {
   constructor(props) {
@@ -86,7 +86,7 @@ class Auth extends Component {
         form = <LoginForm handle_login={this.handle_login} />;
         break;
       case "signup":
-        form = <SignupFormModal handle_signup={this.handle_signup} />;
+        form = <SignupForm handle_signup={this.handle_signup} />;
         break;
       default:
         form = null;
@@ -100,7 +100,11 @@ class Auth extends Component {
           handle_logout={this.handle_logout}
         />
         {form}
-        <h3>{this.state.logged_in ? "Welcome" : "Please Log In"}</h3>
+        <h3>
+          {this.state.logged_in
+            ? `Welcome, ${this.state.username}`
+            : "Please Log In"}
+        </h3>
       </div>
     );
   }
