@@ -36,7 +36,7 @@ class LoginForm extends React.Component {
     return (
       <div className={styles.container}>
         <form onSubmit={e => this.props.handle_login(e, this.state)}>
-          <h4>Logga in</h4>
+          <p>Logga in</p>
           <label htmlFor="username">Användarnamn</label>
           <input
             type="text"
@@ -51,9 +51,9 @@ class LoginForm extends React.Component {
             value={this.state.password}
             onChange={this.handle_change}
           />
-          <input type="submit" />
+          <input className={styles.submit} type="submit" value="Logga in" />
         </form>
-        <button className={styles.toggleButton} onClick={this.onClose}>
+        <button className={styles.closeButton} onClick={this.onClose}>
           Close
         </button>
       </div>
