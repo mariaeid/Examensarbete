@@ -8,11 +8,13 @@ from django.conf.urls.static import static
 from environmentalProject import views as environmentalProjectViews
 from mainContent import views as mainContentViews
 from steps import views as stepsViews
+from buyer import views as buyerViews
 
 router = routers.DefaultRouter()
 router.register(r'environmentalProjects', environmentalProjectViews.EnvironmentalProjectView, 'environmentalProject')
 router.register(r'mainContent', mainContentViews.MainContentView, 'mainContent')
-router.register(r'steps', stepsViews.StepsView, 'steps')
+router.register(r'steps', stepsViews.StepsView, 'steps'),
+router.register(r'buyer', buyerViews.BuyerView, 'buyer')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
