@@ -19,7 +19,7 @@ class Navbar extends Component {
             this.props.display_form("signup");
           }}
         >
-          Skapa användare
+          Skapa konto
         </li>
       </ul>
     );
