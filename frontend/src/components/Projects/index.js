@@ -26,9 +26,9 @@ class Projects extends Component {
   render() {
     return (
       <div className={styles.cardContainer}>
-        {this.state.projects.map((project, key) => (
+        {this.state.projects.map(project => (
           <ProjectSummary
-            key={key}
+            key={project.id}
             title={project.title}
             intro={project.intro}
             fullDescription={project.fullDescription}
