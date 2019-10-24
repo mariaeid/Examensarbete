@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Route, Redirect } from "react-router";
 
 import Navbar from "../Navbar";
 import LoginForm from "../LoginForm";
 import SignupForm from "../SignupForm";
+import User from "../../pages/User";
 
 class Auth extends Component {
   constructor(props) {
@@ -71,6 +73,7 @@ class Auth extends Component {
   handle_logout = () => {
     localStorage.removeItem("token");
     this.setState({ logged_in: false, username: "" });
+    this.forceUpdate();
   };
 
   display_form = form => {
@@ -100,14 +103,17 @@ class Auth extends Component {
           handle_logout={this.handle_logout}
         />
         {form}
-        <h3>
-          {this.state.logged_in
-            ? `Welcome, ${this.state.username}`
-            : "Please Log In"}
-        </h3>
+        <Route
+          exact
+          path="/"
+          render={() =>
+            this.state.logged_in ? <Redirect to="/user" /> : <Redirect to="/" />
+          }
+        />
       </div>
     );
   }
 }
+// <div>{this.state.logged_in ? "Hello from Auth" : "Please Log In"}</div>
 
 export default Auth;
