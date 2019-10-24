@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-import LogoutButton from "../../components/LogoutButton";
+import ButtonLogout from "../../components/ButtonLogout";
 
 class User extends Component {
   constructor(props) {
@@ -35,8 +35,8 @@ class User extends Component {
   render() {
     return (
       <div>
-        <h3>Hello from User</h3>
-        <LogoutButton handle_logout={this.handle_logout} />
+        <ButtonLogout handle_logout={this.handle_logout} />
+        <p>Hello, {this.state.username}</p>
       </div>
     );
   }
