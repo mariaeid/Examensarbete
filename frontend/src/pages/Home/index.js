@@ -72,6 +72,12 @@ class Home extends Component {
       });
   };
 
+  handle_logout = () => {
+    localStorage.removeItem("token");
+    this.setState({ logged_in: false, username: "" });
+    this.props.history.push("/");
+  };
+
   display_form = form => {
     this.setState({
       displayed_form: form
@@ -110,18 +116,17 @@ class Home extends Component {
           />
         ))}
         <Projects />
-        <div>
-          <Navbar
-            logged_in={this.state.logged_in}
-            display_form={this.display_form}
-          />
-          {form}
-          <Route
-            exact
-            path="/"
-            render={() => (this.state.logged_in ? <Redirect to="/user" /> : "")}
-          />
-        </div>
+        {form}
+        <Route
+          exact
+          path="/"
+          render={() => (this.state.logged_in ? <Redirect to="/user" /> : "")}
+        />
+        <Navbar
+          logged_in={this.state.logged_in}
+          display_form={this.display_form}
+          handle_logout={this.handle_logout}
+        />
       </div>
     );
   }
