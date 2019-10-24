@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'environmentalProject',
     'mainContent',
     'steps',
-    'core.apps.CoreConfig'
+    'core.apps.CoreConfig',
+    'buyer'
 ]
 
 MIDDLEWARE = [
