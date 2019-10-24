@@ -1,0 +1,52 @@
+@import "../../variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonPrimary {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 10rem;
+
+  color: $highLight;
+  background-color: rgba(81, 72, 64, 0.72);
+  border-radius: 50px;
+  border: 2px solid $highLight;
+  outline: none;
+
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 125%;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.buttonSecondary {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 10rem;
+
+  color: $defaultTextColorDark;
+  background-color: $highLight;
+  border: 2px solid $highLight;
+  border-radius: 50px;
+  outline: none;
+
+  font-family: "Muli", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 125%;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
