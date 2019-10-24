@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Navbar from "../Navbar";
-import LoginFormModal from "../LoginFormModal";
+import LoginForm from "../LoginForm";
 import SignupFormModal from "../SignupFormModal";
 
 class Auth extends Component {
@@ -83,7 +83,7 @@ class Auth extends Component {
     let form;
     switch (this.state.displayed_form) {
       case "login":
-        form = <LoginFormModal handle_login={this.handle_login} />;
+        form = <LoginForm handle_login={this.handle_login} />;
         break;
       case "signup":
         form = <SignupFormModal handle_signup={this.handle_signup} />;
