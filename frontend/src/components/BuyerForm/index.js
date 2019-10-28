@@ -14,11 +14,20 @@ class BuyerForm extends React.Component {
       zipCode: "",
       city: "",
       phone: "",
-      username: ""
+      username: "",
+      buyerId: ""
     };
   }
 
+  generateRandomNumber = () => {
+    let randomNumber =
+      Math.floor(Math.random() * (9999999 - 9000000 + 1)) + 9000000;
+    this.setState({
+      buyerId: randomNumber
+    });
+  };
   componentDidMount() {
+    this.generateRandomNumber();
     this.setState({
       username: this.props.loggedInUsername
     });
@@ -91,7 +100,8 @@ class BuyerForm extends React.Component {
             onChange={this.handle_change}
           />
           <input type="hidden" name="username" value={this.state.username} />
-          <input type="submit" />
+          <input type="hidden" name="buyerId" value={this.state.buyerId} />
+          <input type="submit" value="Spara kunduppgifter" />
         </form>
       </div>
     );
