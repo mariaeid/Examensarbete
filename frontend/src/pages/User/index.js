@@ -7,6 +7,7 @@ import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 
 class User extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -17,11 +18,13 @@ class User extends Component {
       streetAddress: "",
       zipCode: "",
       city: "",
-      phone: ""
+      phone: "",
+      buyerId: ""
     };
   }
 
   componentDidMount() {
+    this._isMounted = true;
     if (this.state.logged_in) {
       fetch("http://localhost:8000/core/current_user/", {
         headers: {
@@ -35,6 +38,10 @@ class User extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   handle_logout = () => {
     localStorage.removeItem("token");
     this.setState({ logged_in: false, username: "" });
@@ -42,6 +49,7 @@ class User extends Component {
   };
 
   handle_buy = (e, data) => {
+    console.log(data);
     e.preventDefault();
     fetch("http://127.0.0.1:8000/api/buyer/", {
       method: "POST",
@@ -59,8 +67,17 @@ class User extends Component {
           zipCode: json.zipCode,
           city: json.city,
           phone: json.phone,
+          buyerId: json.buyerId,
           displayed_form: ""
         });
+      })
+      .then(x => {
+        if (this._isMounted) {
+          this.props.history.push({
+            pathname: "/buy",
+            state: { currentBuyer: this.state.buyerId }
+          });
+        }
       });
   };
 
@@ -84,14 +101,13 @@ class User extends Component {
       default:
         form = null;
     }
-
     return (
       <div>
         <ButtonLogout handle_logout={this.handle_logout} />
         <p>Hello, {this.state.username}</p>
-        <Buyers loggedInUsername={this.state.username} />
         <RegisterBuy display_form={this.display_form} />
         {form}
+        <Buyers loggedInUsername={this.state.username} />
       </div>
     );
   }
