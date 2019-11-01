@@ -10,15 +10,22 @@ function App() {
     <Router>
       <div className="App">
         <div className="content">
-          <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
+          <Route
+            path={`${process.env.PUBLIC_URL}/`}
+            exact
+            strict
+            component={Home}
+          />
           <Route
             path={`${process.env.PUBLIC_URL}/user`}
             exact
+            strict
             component={User}
           />
           <Route
             path={`${process.env.PUBLIC_URL}/buy`}
             exact
+            strict
             component={RegisterBuy}
           />
         </div>
