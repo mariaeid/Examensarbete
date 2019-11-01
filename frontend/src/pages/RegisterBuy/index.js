@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
 import CurrentBuyer from "../../components/CurrentBuyer";
+import Products from "../../components/Products";
+import CartForm from "../../components/CartForm";
 
 class User extends Component {
   constructor(props) {
     super(props);
+    // this.updated = true;
     this.state = {
       logged_in: localStorage.getItem("token") ? true : false,
-      username: ""
+      username: "",
+      buyerId: "",
+      productId: "",
+      updated: false
     };
   }
 
@@ -25,7 +32,27 @@ class User extends Component {
           this.setState({ username: json.username });
         });
     }
+    console.log("Logged in Register Buy", this.state.logged_in);
   }
+
+  handle_cart = (e, data) => {
+    e.preventDefault();
+    fetch("http://127.0.0.1:8000/api/cart/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          productId: json.productId,
+          buyerId: json.buyerId
+        });
+      });
+    console.log("HEJ");
+  };
 
   handle_logout = () => {
     localStorage.removeItem("token");
@@ -33,11 +60,35 @@ class User extends Component {
     this.props.history.push("/");
   };
 
+  // updateOnSubmit = () => {
+  //   this.setState({
+  //     updated: true
+  //   });
+  //   console.log("Update on submit: ", this.state.updated);
+  // };
+  //
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("ComponentDidUpdate: ", prevState.updated);
+  //   if (prevState.updated !== this.state.updated) {
+  //     this.forceUpdate();
+  //     this.setState({
+  //       updated: false
+  //     });
+  //   }
+  // }
+  //
+
   render() {
     return (
       <div>
         <ButtonLogout handle_logout={this.handle_logout} />
         <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
+        <CartForm
+          currentBuyer={this.props.location.state.currentBuyer}
+          handle_cart={this.handle_cart}
+          updateOnSubmit={this.updateOnSubmit}
+        />
+        <Products currentBuyer={this.props.location.state.currentBuyer} />
       </div>
     );
   }
