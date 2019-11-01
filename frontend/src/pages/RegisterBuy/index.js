@@ -52,6 +52,7 @@ class User extends Component {
         });
       });
     console.log("HEJ");
+    window.location.reload();
   };
 
   handle_logout = () => {
@@ -60,37 +61,22 @@ class User extends Component {
     this.props.history.push("/");
   };
 
-  // updateOnSubmit = () => {
-  //   this.setState({
-  //     updated: true
-  //   });
-  //   console.log("Update on submit: ", this.state.updated);
-  // };
-  //
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log("ComponentDidUpdate: ", prevState.updated);
-  //   if (prevState.updated !== this.state.updated) {
-  //     this.forceUpdate();
-  //     this.setState({
-  //       updated: false
-  //     });
-  //   }
-  // }
-  //
-
   render() {
-    return (
-      <div>
-        <ButtonLogout handle_logout={this.handle_logout} />
-        <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
-        <CartForm
-          currentBuyer={this.props.location.state.currentBuyer}
-          handle_cart={this.handle_cart}
-          updateOnSubmit={this.updateOnSubmit}
-        />
-        <Products currentBuyer={this.props.location.state.currentBuyer} />
-      </div>
-    );
+    if (!this.props.location.state) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <div>
+          <ButtonLogout handle_logout={this.handle_logout} />
+          <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
+          <CartForm
+            currentBuyer={this.props.location.state.currentBuyer}
+            handle_cart={this.handle_cart}
+          />
+          <Products currentBuyer={this.props.location.state.currentBuyer} />
+        </div>
+      );
+    }
   }
 }
 
