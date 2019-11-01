@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'mainContent',
     'steps',
     'core.apps.CoreConfig',
-    'buyer'
+    'buyer',
+    'product',
+    'cart'
 ]
 
 MIDDLEWARE = [
