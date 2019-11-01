@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
 import Buyers from "../../components/Buyers";
@@ -36,6 +37,7 @@ class User extends Component {
           this.setState({ username: json.username });
         });
     }
+    console.log("Logged in User", this.state.logged_in);
   }
 
   componentWillUnmount() {
