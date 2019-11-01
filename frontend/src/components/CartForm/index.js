@@ -32,7 +32,12 @@ class CartForm extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <form onSubmit={e => this.props.handle_cart(e, this.state)}>
+        <form
+          onSubmit={e => {
+            this.props.handle_cart(e, this.state);
+            this.props.sendData("update");
+          }}
+        >
           <h4>Lägg till i varukorg</h4>
           <label htmlFor="firstName">Produktnummer</label>
           <input
