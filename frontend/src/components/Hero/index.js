@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router";
+import { FiChevronsDown } from "react-icons/fi";
+import { IconContext } from "react-icons";
 
 import LoginSignUp from "../LoginSignUp";
 import LoginForm from "../LoginForm";
@@ -82,6 +84,11 @@ class Hero extends Component {
       default:
         form = null;
     }
+
+    if (this.state.logged_in === true) {
+      return <Redirect to="/user" />;
+    }
+
     return (
       <div className={styles.container}>
         <video id="background-video" loop autoPlay>
@@ -97,19 +104,13 @@ class Hero extends Component {
               display_form={this.display_form}
             />
             {form}
-            <Route
-              exact
-              path="/"
-              render={() =>
-                this.state.logged_in ? <Redirect to="/user" /> : ""
-              }
-            />
             <div className={styles.readMoreContainer}>
               <p className={styles.text}>Läs mer</p>
-              <img
-                src={`${process.env.PUBLIC_URL}/icons/doubleArrows.png`}
-                alt="Läs mer"
-              />
+              <IconContext.Provider value={{ color: "white", size: "2rem" }}>
+                <div>
+                  <FiChevronsDown />
+                </div>
+              </IconContext.Provider>
             </div>
           </div>
         </div>
