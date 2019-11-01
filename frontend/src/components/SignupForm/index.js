@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { MdClose } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 import styles from "./index.module.scss";
 
@@ -35,8 +37,13 @@ class SignupForm extends React.Component {
     }
     return (
       <div className={styles.container}>
+        <IconContext.Provider value={{ color: "#291502", size: "1.5rem" }}>
+          <div className={styles.icon}>
+            <MdClose onClick={this.onClose} />
+          </div>
+        </IconContext.Provider>
         <form onSubmit={e => this.props.handle_signup(e, this.state)}>
-          <h4>Skapa konto</h4>
+          <p>Skapa konto</p>
           <label htmlFor="username">Användarnamn</label>
           <input
             type="text"
@@ -51,11 +58,8 @@ class SignupForm extends React.Component {
             value={this.state.password}
             onChange={this.handle_change}
           />
-          <input type="submit" />
+          <input className={styles.submit} type="submit" value="Skicka" />
         </form>
-        <button className={styles.toggleButton} onClick={this.onClose}>
-          Close
-        </button>
       </div>
     );
   }

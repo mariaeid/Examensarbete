@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { MdClose } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 import styles from "./index.module.scss";
 
@@ -35,6 +37,12 @@ class LoginForm extends React.Component {
     }
     return (
       <div className={styles.container}>
+        <IconContext.Provider value={{ color: "#291502", size: "1.5rem" }}>
+          <div className={styles.icon}>
+            <MdClose onClick={this.onClose} />
+          </div>
+        </IconContext.Provider>
+
         <form onSubmit={e => this.props.handle_login(e, this.state)}>
           <p>Logga in</p>
           <label htmlFor="username">Användarnamn</label>
@@ -53,9 +61,6 @@ class LoginForm extends React.Component {
           />
           <input className={styles.submit} type="submit" value="Logga in" />
         </form>
-        <button className={styles.closeButton} onClick={this.onClose}>
-          Close
-        </button>
       </div>
     );
   }
