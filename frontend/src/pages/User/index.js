@@ -103,6 +103,7 @@ class User extends Component {
       default:
         form = null;
     }
+
     return (
       <div>
         <ButtonLogout handle_logout={this.handle_logout} />
