@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
-import Navbar from "../Navbar";
+import LoginSignUp from "../LoginSignUp";
 import LoginForm from "../LoginForm";
 import SignupForm from "../SignupForm";
-import User from "../../pages/User";
 
 class Auth extends Component {
   constructor(props) {
@@ -95,25 +94,20 @@ class Auth extends Component {
         form = null;
     }
 
+    if (this.state.logged_in === true) {
+      return <Redirect to="/user" />;
+    }
+
     return (
       <div>
-        <Navbar
+        <LoginSignUp
           logged_in={this.state.logged_in}
           display_form={this.display_form}
-          handle_logout={this.handle_logout}
         />
         {form}
-        <Route
-          exact
-          path="/"
-          render={() =>
-            this.state.logged_in ? <Redirect to="/user" /> : <Redirect to="/" />
-          }
-        />
       </div>
     );
   }
 }
-// <div>{this.state.logged_in ? "Hello from Auth" : "Please Log In"}</div>
 
 export default Auth;
