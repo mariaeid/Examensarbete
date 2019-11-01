@@ -9,12 +9,16 @@ from environmentalProject import views as environmentalProjectViews
 from mainContent import views as mainContentViews
 from steps import views as stepsViews
 from buyer import views as buyerViews
+from product import views as productViews
+from cart import views as cartViews
 
 router = routers.DefaultRouter()
 router.register(r'environmentalProjects', environmentalProjectViews.EnvironmentalProjectView, 'environmentalProject')
 router.register(r'mainContent', mainContentViews.MainContentView, 'mainContent')
 router.register(r'steps', stepsViews.StepsView, 'steps'),
-router.register(r'buyer', buyerViews.BuyerView, 'buyer')
+router.register(r'buyer', buyerViews.BuyerView, 'buyer'),
+router.register(r'product', productViews.ProductView, 'product'),
+router.register(r'cart', cartViews.CartView, 'cart')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
