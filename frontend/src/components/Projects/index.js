@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { IconContext } from "react-icons";
+import { FiChevronRight } from "react-icons/fi";
 
 import ProjectSummary from "../ProjectSummary";
 
@@ -25,19 +27,29 @@ class Projects extends Component {
 
   render() {
     return (
-      <div className={styles.cardContainer}>
-        {this.state.projects.map(project => (
-          <ProjectSummary
-            key={project.id}
-            title={project.title}
-            intro={project.intro}
-            fullDescription={project.fullDescription}
-            image={project.image}
-          />
-        ))}
+      <div className={styles.container}>
+        <div className={styles.projectsContainer}>
+          {this.state.projects.map(project => (
+            <ProjectSummary
+              key={project.id}
+              title={project.title}
+              intro={project.intro}
+              fullDescription={project.fullDescription}
+              image={project.image}
+            />
+          ))}
+        </div>
       </div>
     );
   }
 }
 
 export default Projects;
+
+// <div className={styles.iconContainer}>
+// <IconContext.Provider value={{ color: "black", size: "4rem" }}>
+// <div className={styles.icon}>
+// <FiChevronRight onClick={this.handleRightClicked} />
+// </div>
+// </IconContext.Provider>
+// </div>
