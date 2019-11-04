@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { Route, Redirect } from "react-router";
 
 import Buyer from "../Buyer";
 
@@ -6,7 +8,8 @@ import styles from "./index.module.scss";
 
 class Buyers extends Component {
   state = {
-    buyers: []
+    buyers: [],
+    buyerId: ""
   };
 
   async componentDidMount() {
@@ -20,6 +23,19 @@ class Buyers extends Component {
       console.log(e);
     }
   }
+
+  // handle_edit = () => {
+  //   this.props.history.push({
+  //     pathname: "/editBuy"
+  //     // state: {yourCalculatedData: data}
+  //   });
+  // };
+
+  display_form = form => {
+    this.setState({
+      displayed_form: form
+    });
+  };
 
   render() {
     const buyerFilter = array => {
@@ -35,15 +51,19 @@ class Buyers extends Component {
       <div>
         {buyerFilter(this.state.buyers).map(buyer => {
           return (
-            <Buyer
-              key={buyer.id}
-              firstName={buyer.firstName}
-              lastName={buyer.lastName}
-              streetAddress={buyer.streetAddress}
-              zipCode={buyer.zipCode}
-              city={buyer.city}
-              phone={buyer.phone}
-            />
+            <div>
+              <Buyer
+                key={buyer.id}
+                firstName={buyer.firstName}
+                lastName={buyer.lastName}
+                streetAddress={buyer.streetAddress}
+                zipCode={buyer.zipCode}
+                city={buyer.city}
+                phone={buyer.phone}
+              />
+
+              <button onClick={this.handle_edit}>Ändra</button>
+            </div>
           );
         })}
       </div>
