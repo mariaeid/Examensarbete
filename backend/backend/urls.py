@@ -18,13 +18,14 @@ router.register(r'mainContent', mainContentViews.MainContentView, 'mainContent')
 router.register(r'steps', stepsViews.StepsView, 'steps'),
 router.register(r'buyer', buyerViews.BuyerView, 'buyer'),
 router.register(r'product', productViews.ProductView, 'product'),
-router.register(r'cart', cartViews.CartView, 'cart')
+router.register(r'cart', cartViews.CartView, 'cart'),
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('token-auth/', obtain_jwt_token),
-    path('core/', include('core.urls'))
+    path('core/', include('core.urls')),
+    # path('', include('sendemail.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
