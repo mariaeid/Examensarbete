@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sendemail.apps.SendemailConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'buyer',
     'product',
-    'cart'
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,8 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'backend.utils.my_jwt_response_handler',
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Internationalization
