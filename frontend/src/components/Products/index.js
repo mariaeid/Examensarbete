@@ -41,31 +41,23 @@ class Products extends Component {
       });
     };
 
-    return (
-      <div>
-        {cartFilter(this.state.carts).map(cart => {
-          const productFilter = array => {
-            return array.filter(product => {
-              if (product.productId === cart.productId) {
-                return true;
-              }
-              return false;
-            });
-          };
-          return productFilter(this.state.products).map(product => {
-            return (
-              <Product
-                key={cart.id}
-                key={product.id}
-                productId={cart.productId}
-                name={product.name}
-                price={product.price}
-              />
-            );
-          });
-        })}
-      </div>
-    );
+    const filteredItems = cartFilter(this.state.carts).map(cart => {
+      return this.state.products.map(product => {
+        if (product.productId === cart.productId) {
+          return (
+            <Product
+              key={cart.id}
+              key={product.id}
+              productId={cart.productId}
+              name={product.name}
+              price={product.price}
+            />
+          );
+        }
+      });
+    });
+
+    return <div>{filteredItems}</div>;
   }
 }
 
