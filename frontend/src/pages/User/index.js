@@ -3,9 +3,9 @@ import { withRouter } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
-import Buyers from "../../components/Buyers";
 import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
+import Orders from "../../components/Orders";
 
 class User extends Component {
   _isMounted = false;
@@ -73,7 +73,7 @@ class User extends Component {
           displayed_form: ""
         });
       })
-      .then(x => {
+      .then(() => {
         if (this._isMounted) {
           this.props.history.push({
             pathname: "/buy",
@@ -110,7 +110,7 @@ class User extends Component {
         <p>Hello, {this.state.username}</p>
         <RegisterBuy display_form={this.display_form} />
         {form}
-        <Buyers loggedInUsername={this.state.username} />
+        <Orders loggedInUsername={this.state.username} />
       </div>
     );
   }
