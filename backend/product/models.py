@@ -1,9 +1,9 @@
 from django.db import models
 
 class Product(models.Model):
-      productId = models.IntegerField(unique=True)
-      name = models.CharField(max_length=120, unique=True)
-      price = models.IntegerField()
+    productId = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=120)
+    price = models.IntegerField()
 
-      def _str_(self):
-        return self.title
+    def __str__(self):
+        return self.name + str(self.price)
