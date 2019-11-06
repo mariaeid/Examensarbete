@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router";
+import axios from "axios";
 
 import Hero from "../../components/Hero";
 import Steps from "../../components/Steps";
@@ -18,15 +19,20 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    try {
-      const res = await fetch(base_url + "/mainContent");
-      const mainContents = await res.json();
+    axios.get(base_url + "/api/mainContent").then(res => {
       this.setState({
-        mainContents
+        mainContents: res.data
       });
-    } catch (e) {
-      console.log(e);
-    }
+    });
+    // try {
+    //   const res = await fetch(base_url + "/mainContent");
+    //   const mainContents = await res.json();
+    //   this.setState({
+    //     mainContents
+    //   });
+    // } catch (e) {
+    //   console.log(e);
+    // }
   }
 
   render() {
