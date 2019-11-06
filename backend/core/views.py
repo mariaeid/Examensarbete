@@ -10,12 +10,21 @@ from .serializers import UserSerializer, UserSerializerWithToken
 
 @api_view(['GET'])
 def current_user(request):
-    """
-    Determine the current user by their token, and return their data
-    """
+    user = request.user
+    return Response({
+    'username': user.username,
+    'email': user.email,
+    'firstName': user.first_name,
+    'lastName': user.last_name
+    })
 
-    serializer = UserSerializer(request.user)
-    return Response(serializer.data)
+# def current_user(request):
+#     """
+#     Determine the current user by their token, and return their data
+#     """
+#
+#     serializer = UserSerializer(request.user)
+#     return Response(serializer.data)
 
 
 class UserList(APIView):
