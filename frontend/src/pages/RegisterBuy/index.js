@@ -22,6 +22,7 @@ class User extends Component {
 
   componentDidMount() {
     if (this.state.logged_in) {
+      console.log("Logged in");
       fetch("http://localhost:8000/core/current_user/", {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`
@@ -29,9 +30,14 @@ class User extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.username });
+          this.setState({
+            username: json.username
+          });
         });
+    } else {
+      console.log("Not logged in");
     }
+
     console.log("Logged in Register Buy", this.state.logged_in);
   }
 
@@ -51,9 +57,21 @@ class User extends Component {
           buyerId: json.buyerId
         });
       });
-    console.log("HEJ");
     window.location.reload();
   };
+
+  // handle_update_cart = e => {
+  //   e.preventDefault();
+  //   fetch("http://127.0.0.1:8000/api/cart")
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       this.setState({
+  //         productId: json.productId,
+  //         buyerId: json.buyerId
+  //       });
+  //     });
+  //   console.log("UPDATED", this.state.productId);
+  // };
 
   handle_logout = () => {
     localStorage.removeItem("token");
@@ -72,6 +90,7 @@ class User extends Component {
           <CartForm
             currentBuyer={this.props.location.state.currentBuyer}
             handle_cart={this.handle_cart}
+            // handle_update_cart={this.handle_update_cart}
           />
           <Products currentBuyer={this.props.location.state.currentBuyer} />
         </div>
