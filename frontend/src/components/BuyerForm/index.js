@@ -108,9 +108,6 @@ class BuyerForm extends React.Component {
   }
 }
 
-// <button className={styles.toggleButton} onClick={this.onClose}>
-// Close
-// </button>
 export default BuyerForm;
 
 BuyerForm.propTypes = {
