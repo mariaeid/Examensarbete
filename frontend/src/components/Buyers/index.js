@@ -24,13 +24,6 @@ class Buyers extends Component {
     }
   }
 
-  // handle_edit = () => {
-  //   this.props.history.push({
-  //     pathname: "/editBuy"
-  //     // state: {yourCalculatedData: data}
-  //   });
-  // };
-
   display_form = form => {
     this.setState({
       displayed_form: form
@@ -61,8 +54,6 @@ class Buyers extends Component {
                 city={buyer.city}
                 phone={buyer.phone}
               />
-
-              <button onClick={this.handle_edit}>Ändra</button>
             </div>
           );
         })}
