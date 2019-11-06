@@ -11,7 +11,9 @@ class SignupForm extends React.Component {
     this.show = true;
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: ""
     };
   }
 
@@ -44,11 +46,25 @@ class SignupForm extends React.Component {
         </IconContext.Provider>
         <form onSubmit={e => this.props.handle_signup(e, this.state)}>
           <p>Skapa konto</p>
-          <label htmlFor="username">Användarnamn</label>
+          <label htmlFor="username">Mail</label>
           <input
-            type="text"
+            type="email"
             name="username"
             value={this.state.username}
+            onChange={this.handle_change}
+          />
+          <label htmlFor="firstName">Förnamn</label>
+          <input
+            type="text"
+            name="firstName"
+            value={this.state.firstName}
+            onChange={this.handle_change}
+          />
+          <label htmlFor="lastName">Efternamn</label>
+          <input
+            type="text"
+            name="lastName"
+            value={this.state.lastName}
             onChange={this.handle_change}
           />
           <label htmlFor="password">Lösenord</label>
