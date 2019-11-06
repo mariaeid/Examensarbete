@@ -35,6 +35,7 @@ class CartForm extends React.Component {
         <form
           onSubmit={e => {
             this.props.handle_cart(e, this.state);
+            // this.props.handle_update_cart(e, this.state);
             this.props.sendData("update");
           }}
         >
