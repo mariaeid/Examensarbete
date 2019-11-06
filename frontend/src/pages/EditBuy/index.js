@@ -3,21 +3,29 @@ import { withRouter } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
-import CurrentBuyer from "../../components/CurrentBuyer";
-import Products from "../../components/Products";
-import CartForm from "../../components/CartForm";
+import EditOrder from "../../components/EditOrder";
+import EditBuyerForm from "../../components/EditBuyerForm";
 
 class EditBuy extends Component {
   constructor(props) {
     super(props);
     // this.updated = true;
     this.state = {
-      logged_in: localStorage.getItem("token") ? true : false
+      logged_in: localStorage.getItem("token") ? true : false,
+      username: "",
+      buyerId: this.props.match.params.currentBuyerId,
+      firstName: "",
+      last_name: "",
+      streetAddress: "",
+      zipCode: "",
+      city: "",
+      phone: ""
     };
   }
 
   componentDidMount() {
     if (this.state.logged_in) {
+      console.log("Logged in");
       fetch("http://localhost:8000/core/current_user/", {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`
@@ -25,30 +33,15 @@ class EditBuy extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.username });
+          this.setState({
+            username: json.username
+          });
         });
+    } else {
+      console.log("Not logged in");
     }
-    console.log("Logged in Register Buy", this.state.logged_in);
+    console.log("Detta buyer id", this.state.buyerId);
   }
-
-  handle_cart = (e, data) => {
-    e.preventDefault();
-    fetch("http://127.0.0.1:8000/api/cart/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          productId: json.productId,
-          buyerId: json.buyerId
-        });
-      });
-    window.location.reload();
-  };
 
   handle_logout = () => {
     localStorage.removeItem("token");
@@ -57,22 +50,20 @@ class EditBuy extends Component {
   };
 
   render() {
-    if (!this.props.location.state) {
-      return <Redirect to="/" />;
-    } else {
-      return (
-        <div>
-          <ButtonLogout handle_logout={this.handle_logout} />
-        </div>
-      );
-    }
+    // if (!this.props.location.state) {
+    //   return <Redirect to="/" />;
+    // } else {
+    return (
+      <div>
+        <ButtonLogout handle_logout={this.handle_logout} />
+        <EditBuyerForm
+          // handle_edit_buyer={this.handle_edit_buyer}
+          currentBuyer={this.state.buyerId}
+        />
+      </div>
+    );
   }
+  // }
 }
 
-// <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
-// <CartForm
-// currentBuyer={this.props.location.state.currentBuyer}
-// handle_cart={this.handle_cart}
-// />
-// <Products currentBuyer={this.props.location.state.currentBuyer} />
 export default EditBuy;
