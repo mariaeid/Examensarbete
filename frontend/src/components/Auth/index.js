@@ -12,8 +12,6 @@ class Auth extends Component {
       displayed_form: "",
       logged_in: localStorage.getItem("token") ? true : false,
       username: ""
-      // firstName: "",
-      // lastName: ""
     };
   }
 
@@ -67,8 +65,6 @@ class Auth extends Component {
           logged_in: true,
           displayed_form: "",
           username: json.username
-          // firstName: json.firstName,
-          // lastName: json.lastName
         });
       });
   };
