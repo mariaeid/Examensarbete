@@ -5,6 +5,9 @@ import Hero from "../../components/Hero";
 import Steps from "../../components/Steps";
 import Projects from "../../components/Projects";
 import TextBox from "../../components/TextBox";
+import { serverAddress } from "../../config.js";
+
+const base_url = serverAddress;
 
 class Home extends Component {
   constructor(props) {
@@ -16,7 +19,7 @@ class Home extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/mainContent");
+      const res = await fetch(base_url + "/mainContent");
       const mainContents = await res.json();
       this.setState({
         mainContents
