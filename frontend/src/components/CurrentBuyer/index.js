@@ -24,7 +24,7 @@ class Buyers extends Component {
   render() {
     const buyerFilter = array => {
       return array.filter(buyer => {
-        if (buyer.buyerId === this.props.currentBuyer) {
+        if (buyer.buyerId === parseInt(this.props.currentBuyer, 10)) {
           return true;
         }
         return false;
