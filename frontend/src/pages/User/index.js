@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
 import BuyerForm from "../../components/BuyerForm";
@@ -14,6 +12,9 @@ class User extends Component {
     this.state = {
       logged_in: localStorage.getItem("token") ? true : false,
       username: "",
+      userFirstName: "",
+      userLastName: "",
+      userEmail: "",
       firstName: "",
       last_name: "",
       streetAddress: "",
@@ -27,6 +28,7 @@ class User extends Component {
   componentDidMount() {
     this._isMounted = true;
     if (this.state.logged_in) {
+      console.log("Logged in");
       fetch("http://localhost:8000/core/current_user/", {
         headers: {
           Authorization: `JWT ${localStorage.getItem("token")}`
@@ -34,10 +36,16 @@ class User extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.username });
+          this.setState({
+            username: json.username,
+            userFirstName: json.firstName,
+            userLastName: json.lastName,
+            userEmail: json.email
+          });
         });
+    } else {
+      console.log("Not logged in");
     }
-    console.log("Logged in User", this.state.logged_in);
   }
 
   componentWillUnmount() {
@@ -107,7 +115,9 @@ class User extends Component {
     return (
       <div>
         <ButtonLogout handle_logout={this.handle_logout} />
-        <p>Hello, {this.state.username}</p>
+        <p>
+          Hello, {this.state.userFirstName} {this.state.userLastName}
+        </p>
         <RegisterBuy display_form={this.display_form} />
         {form}
         <Orders loggedInUsername={this.state.username} />
