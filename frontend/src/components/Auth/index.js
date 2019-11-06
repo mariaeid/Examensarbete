@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
+import axios from "axios";
 
 import LoginSignUp from "../LoginSignUp";
 import LoginForm from "../LoginForm";
 import SignupForm from "../SignupForm";
+import { serverAddress } from "../../config.js";
+
+const base_url = serverAddress;
 
 class Auth extends Component {
   constructor(props) {
@@ -11,7 +15,10 @@ class Auth extends Component {
     this.state = {
       displayed_form: "",
       logged_in: localStorage.getItem("token") ? true : false,
-      username: ""
+      username: "",
+      password: "",
+      first_name: "",
+      last_name: ""
     };
   }
 
@@ -51,21 +58,24 @@ class Auth extends Component {
 
   handle_signup = (e, data) => {
     e.preventDefault();
-    fetch("http://localhost:8000/core/users/", {
-      method: "POST",
+    axios({
+      method: "post",
+      url: base_url + "/core/users/",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(data)
+      data: {
+        username: data.username,
+        password: data.password,
+        first_name: data.first_name,
+        last_name: data.last_name
+      }
     })
-      .then(res => res.json())
-      .then(json => {
-        localStorage.setItem("token", json.token);
-        this.setState({
-          logged_in: true,
-          displayed_form: "",
-          username: json.username
-        });
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.responseta);
       });
   };
 
