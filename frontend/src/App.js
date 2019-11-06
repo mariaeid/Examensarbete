@@ -14,7 +14,12 @@ function App() {
           <Route path="/" exact strict component={Home} />
           <Route path="/user" exact strict component={User} />
           <Route path="/buy" exact strict component={RegisterBuy} />
-          <Route path="/editBuy" exact strict component={EditBuy} />
+          <Route
+            path="/editBuy/:currentBuyerId"
+            exact
+            strict
+            component={EditBuy}
+          />
         </div>
       </div>
     </Router>
