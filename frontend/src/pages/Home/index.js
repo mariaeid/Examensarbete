@@ -29,6 +29,13 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Route
+          exact
+          path="/"
+          render={() =>
+            this.state.logged_in ? <Redirect to="/user" /> : <Redirect to="/" />
+          }
+        />
         <Hero />
         {this.state.mainContents.map((mainContent, key) => (
           <TextBox
@@ -46,13 +53,6 @@ class Home extends Component {
           />
         ))}
         <Projects />
-        <Route
-          exact
-          path="/"
-          render={() =>
-            this.state.logged_in ? <Redirect to="/user" /> : <Redirect to="/" />
-          }
-        />
       </div>
     );
   }
