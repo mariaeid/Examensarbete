@@ -7,7 +7,7 @@ class Buyer(models.Model):
   zipCode = models.CharField(max_length=120, blank=True)
   city = models.CharField(max_length=120)
   phone = models.CharField(max_length=120, blank=True)
-  buyerId = models.IntegerField(blank=True)
+  buyerId = models.IntegerField(blank=True, primary_key=True)
   username = models.CharField(max_length=120, blank=True)
 
   def _str_(self):
