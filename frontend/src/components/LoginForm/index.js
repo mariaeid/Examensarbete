@@ -45,9 +45,9 @@ class LoginForm extends React.Component {
 
         <form onSubmit={e => this.props.handle_login(e, this.state)}>
           <p>Logga in</p>
-          <label htmlFor="username">Användarnamn</label>
+          <label htmlFor="username">Mail</label>
           <input
-            type="text"
+            type="email"
             name="username"
             value={this.state.username}
             onChange={this.handle_change}
