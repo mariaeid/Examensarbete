@@ -2,10 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from rest_framework import permissions, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .serializers import UserSerializer, UserSerializerWithToken
+import simplejson as json
 
 
 @api_view(['GET'])
@@ -14,18 +17,9 @@ def current_user(request):
     return Response({
     'username': user.username,
     'email': user.email,
-    'firstName': user.first_name,
-    'lastName': user.last_name
+    'first_name': user.first_name,
+    'last_name': user.last_name
     })
-
-# def current_user(request):
-#     """
-#     Determine the current user by their token, and return their data
-#     """
-#
-#     serializer = UserSerializer(request.user)
-#     return Response(serializer.data)
-
 
 class UserList(APIView):
     """
@@ -36,8 +30,10 @@ class UserList(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, format=None):
+        data = json.loads(request.body.decode('utf-8'))
         serializer = UserSerializerWithToken(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            print("Requestdata: ", request.data)
+        return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
