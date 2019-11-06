@@ -58,10 +58,8 @@ class Orders extends Component {
         if (cart.buyerId === buyerId)
           if (cart.productId === product.productId) {
             return (
-              <div>
+              <div key={product.productId}>
                 <Product
-                  key={cart.id}
-                  key={product.id}
                   productId={cart.productId}
                   name={product.name}
                   price={product.price}
@@ -85,29 +83,22 @@ class Orders extends Component {
 
     const filteredItems = buyerFilter(this.state.buyers).map(buyer => {
       return (
-        <div>
-          <div>
-            <Buyer
-              key={buyer.id}
-              firstName={buyer.firstName}
-              lastName={buyer.lastName}
-              streetAddress={buyer.streetAddress}
-              zipCode={buyer.zipCode}
-              city={buyer.city}
-              phone={buyer.phone}
-            />
-          </div>
+        <div key={buyer.buyerId}>
+          <Buyer
+            firstName={buyer.firstName}
+            lastName={buyer.lastName}
+            streetAddress={buyer.streetAddress}
+            zipCode={buyer.zipCode}
+            city={buyer.city}
+            phone={buyer.phone}
+          />
           {this.getProductIdsForBuyerFromCart(buyer.buyerId)}
           <NavLink to={`editBuy/${buyer.buyerId}`}>Ändra</NavLink>
         </div>
       );
     });
 
-    return (
-      <div>
-        <div>{filteredItems}</div>
-      </div>
-    );
+    return <div>{filteredItems}</div>;
   }
 }
 export default Orders;
