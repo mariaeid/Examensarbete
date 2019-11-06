@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 import Buyer from "../Buyer";
 import Product from "../Product";
@@ -9,7 +10,8 @@ class Orders extends Component {
     this.state = {
       carts: [],
       products: [],
-      buyers: []
+      buyers: [],
+      buyerId: ""
     };
     this.getProductIdsForBuyerFromCart = this.getProductIdsForBuyerFromCart.bind(
       this
@@ -96,11 +98,16 @@ class Orders extends Component {
             />
           </div>
           {this.getProductIdsForBuyerFromCart(buyer.buyerId)}
+          <NavLink to={`editBuy/${buyer.buyerId}`}>Ändra</NavLink>
         </div>
       );
     });
 
-    return <div>{filteredItems}</div>;
+    return (
+      <div>
+        <div>{filteredItems}</div>
+      </div>
+    );
   }
 }
 export default Orders;
