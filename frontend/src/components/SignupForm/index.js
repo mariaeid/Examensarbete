@@ -12,8 +12,8 @@ class SignupForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      firstName: "",
-      lastName: ""
+      first_name: "",
+      last_name: ""
     };
   }
 
@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
         </IconContext.Provider>
         <form onSubmit={e => this.props.handle_signup(e, this.state)}>
           <p>Skapa konto</p>
-          <label htmlFor="username">Mail</label>
+          <label htmlFor="username">Username</label>
           <input
             type="email"
             name="username"
@@ -56,15 +56,15 @@ class SignupForm extends React.Component {
           <label htmlFor="firstName">Förnamn</label>
           <input
             type="text"
-            name="firstName"
-            value={this.state.firstName}
+            name="first_name"
+            value={this.state.first_name}
             onChange={this.handle_change}
           />
           <label htmlFor="lastName">Efternamn</label>
           <input
             type="text"
-            name="lastName"
-            value={this.state.lastName}
+            name="last_name"
+            value={this.state.last_name}
             onChange={this.handle_change}
           />
           <label htmlFor="password">Lösenord</label>
@@ -84,5 +84,5 @@ class SignupForm extends React.Component {
 export default SignupForm;
 
 SignupForm.propTypes = {
-  handle_signup: PropTypes.func.isRequired
+  // handle_signup: PropTypes.func.isRequired
 };
