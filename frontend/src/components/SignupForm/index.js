@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
         </IconContext.Provider>
         <form onSubmit={e => this.props.handle_signup(e, this.state)}>
           <p>Skapa konto</p>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Mail</label>
           <input
             type="email"
             name="username"
