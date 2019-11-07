@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+button {
+  align-self: flex-end;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $defaultTextColorMiddle;
+}
