@@ -6,7 +6,6 @@ import styles from "./index.module.scss";
 const Product = props => {
   return (
     <div className={styles.container}>
-      <p>{props.productId}</p>
       <p>{props.name}</p>
       <p>{props.price}</p>
     </div>
@@ -14,7 +13,6 @@ const Product = props => {
 };
 
 Product.propTypes = {
-  productId: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired
 };
