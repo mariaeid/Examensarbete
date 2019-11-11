@@ -73,7 +73,7 @@ class Home extends Component {
           />
         ))}
         <ContactForm />
-        <Footer />
+        <Footer title="Följ oss på sociala medier" upText="Till toppen" />
       </div>
     );
   }
