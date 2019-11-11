@@ -6,6 +6,7 @@ import Hero from "../../components/Hero";
 import Steps from "../../components/Steps";
 import Projects from "../../components/Projects";
 import TextBox from "../../components/TextBox";
+import ContactForm from "../../components/ContactForm";
 import { serverAddress } from "../../config.js";
 
 const base_url = serverAddress;
@@ -46,6 +47,7 @@ class Home extends Component {
           }
         />
         <Hero />
+        <div id="main"></div>
         {this.state.mainContents.map((mainContent, key) => (
           <TextBox
             key={key}
@@ -62,6 +64,14 @@ class Home extends Component {
           />
         ))}
         <Projects />
+        {this.state.mainContents.map((mainContent, key) => (
+          <TextBox
+            key={key}
+            title={mainContent.titlePart3}
+            description={mainContent.textPart3}
+          />
+        ))}
+        <ContactForm />
       </div>
     );
   }
