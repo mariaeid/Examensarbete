@@ -36,7 +36,7 @@ class Buyers extends Component {
         {buyerFilter(this.state.buyers).map(buyer => {
           return (
             <Buyer
-              key={buyer.id}
+              key={buyer.buyerId}
               firstName={buyer.firstName}
               lastName={buyer.lastName}
               streetAddress={buyer.streetAddress}
