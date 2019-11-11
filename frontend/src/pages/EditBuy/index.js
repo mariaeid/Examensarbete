@@ -6,6 +6,8 @@ import ButtonLogout from "../../components/ButtonLogout";
 import EditOrder from "../../components/EditOrder";
 import EditBuyerForm from "../../components/EditBuyerForm";
 
+import styles from "./index.module.scss";
+
 class EditBuy extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +56,7 @@ class EditBuy extends Component {
     //   return <Redirect to="/" />;
     // } else {
     return (
-      <div>
+      <div className={styles.container}>
         <ButtonLogout handle_logout={this.handle_logout} />
         <EditBuyerForm
           // handle_edit_buyer={this.handle_edit_buyer}
