@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import Buyer from "../Buyer";
 import Product from "../Product";
 
+import styles from "./index.module.scss";
+
 class Orders extends Component {
   constructor(props) {
     super(props);
@@ -60,7 +62,7 @@ class Orders extends Component {
             return (
               <div key={product.productId}>
                 <Product
-                  productId={cart.productId}
+                  key={cart.productId}
                   name={product.name}
                   price={product.price}
                 />
@@ -83,7 +85,7 @@ class Orders extends Component {
 
     const filteredItems = buyerFilter(this.state.buyers).map(buyer => {
       return (
-        <div key={buyer.buyerId}>
+        <div key={buyer.buyerId} className={styles.orderContainer}>
           <Buyer
             firstName={buyer.firstName}
             lastName={buyer.lastName}
@@ -92,13 +94,17 @@ class Orders extends Component {
             city={buyer.city}
             phone={buyer.phone}
           />
+          <div className={styles.productInfo}>
+            <p>Namn</p>
+            <p>Pris</p>
+          </div>
           {this.getProductIdsForBuyerFromCart(buyer.buyerId)}
           <NavLink to={`editBuy/${buyer.buyerId}`}>Ändra</NavLink>
         </div>
       );
     });
 
-    return <div>{filteredItems}</div>;
+    return <div className={styles.container}>{filteredItems}</div>;
   }
 }
 export default Orders;
