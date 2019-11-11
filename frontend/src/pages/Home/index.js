@@ -7,6 +7,7 @@ import Steps from "../../components/Steps";
 import Projects from "../../components/Projects";
 import TextBox from "../../components/TextBox";
 import ContactForm from "../../components/ContactForm";
+import Footer from "../../components/Footer";
 import { serverAddress } from "../../config.js";
 
 const base_url = serverAddress;
@@ -72,6 +73,7 @@ class Home extends Component {
           />
         ))}
         <ContactForm />
+        <Footer />
       </div>
     );
   }
