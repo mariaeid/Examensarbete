@@ -4,14 +4,4 @@
   display: flex;
   flex-direction: column;
   margin: $distanceSmall 4rem;
-
-  .productInfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 0.2rem;
-    padding-bottom: 0.2rem;
-    width: 25%;
-    border-bottom: solid 0.1px #7d3d00;
-  }
 }
