@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import Product from "../Product";
 
-import styles from "./index.module.scss";
-
 class Products extends Component {
   state = {
     products: [],
@@ -48,7 +46,6 @@ class Products extends Component {
             <Product
               key={cart.id}
               key={product.id}
-              productId={cart.productId}
               name={product.name}
               price={product.price}
             />
