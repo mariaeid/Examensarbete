@@ -44,64 +44,69 @@ class BuyerForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_buy(e, this.state)}>
-        <h4>Uppgifter köpare</h4>
-        <label htmlFor="firstName">Förnamn</label>
-        <input
-          type="text"
-          name="firstName"
-          value={this.state.firstName}
-          onChange={this.handle_change}
-          required
-        />
-        <label htmlFor="lastName">Efternamn</label>
-        <input
-          type="text"
-          name="lastName"
-          value={this.state.lastName}
-          onChange={this.handle_change}
-          required
-        />
-        <label htmlFor="streetAddress">Gatuadress</label>
-        <input
-          type="text"
-          name="streetAddress"
-          value={this.state.streetAddress}
-          onChange={this.handle_change}
-          required
-        />
-        <label htmlFor="zipCode">Postkod</label>
-        <input
-          type="text"
-          name="zipCode"
-          value={this.state.zipCode}
-          onChange={this.handle_change}
-          required
-        />
-        <label htmlFor="city">Stad</label>
-        <input
-          type="text"
-          name="city"
-          value={this.state.city}
-          onChange={this.handle_change}
-          required
-        />
-        <label htmlFor="phone">Telefon</label>
-        <input
-          type="tel"
-          name="phone"
-          value={this.state.phone}
-          onChange={this.handle_change}
-          required
-        />
-        <input type="hidden" name="username" value={this.state.username} />
-        <input type="hidden" name="buyerId" value={this.state.buyerId} />
-        <input
-          className={styles.submit}
-          type="submit"
-          value="Spara kunduppgifter"
-        />
-      </form>
+      <div className={styles.buyerFormContainer}>
+        <form
+          className={styles.buyerForm}
+          onSubmit={e => this.props.handle_buy(e, this.state)}
+        >
+          <h4>Uppgifter köpare</h4>
+          <label htmlFor="firstName">Förnamn</label>
+          <input
+            type="text"
+            name="firstName"
+            value={this.state.firstName}
+            onChange={this.handle_change}
+            required
+          />
+          <label htmlFor="lastName">Efternamn</label>
+          <input
+            type="text"
+            name="lastName"
+            value={this.state.lastName}
+            onChange={this.handle_change}
+            required
+          />
+          <label htmlFor="streetAddress">Gatuadress</label>
+          <input
+            type="text"
+            name="streetAddress"
+            value={this.state.streetAddress}
+            onChange={this.handle_change}
+            required
+          />
+          <label htmlFor="zipCode">Postkod</label>
+          <input
+            type="text"
+            name="zipCode"
+            value={this.state.zipCode}
+            onChange={this.handle_change}
+            required
+          />
+          <label htmlFor="city">Stad</label>
+          <input
+            type="text"
+            name="city"
+            value={this.state.city}
+            onChange={this.handle_change}
+            required
+          />
+          <label htmlFor="phone">Telefon</label>
+          <input
+            type="tel"
+            name="phone"
+            value={this.state.phone}
+            onChange={this.handle_change}
+            required
+          />
+          <input type="hidden" name="username" value={this.state.username} />
+          <input type="hidden" name="buyerId" value={this.state.buyerId} />
+          <input
+            className={styles.submit}
+            type="submit"
+            value="Spara kunduppgifter"
+          />
+        </form>
+      </div>
     );
   }
 }

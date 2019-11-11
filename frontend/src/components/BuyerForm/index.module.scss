@@ -1,52 +1,57 @@
 @import "../../variables.scss";
 
-form {
+.buyerFormContainer {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  width: 30%;
+  align-items: center;
+  .buyerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 30%;
 
-  p {
-    padding-bottom: $distanceSmall;
-    font-weight: 600;
-    font-size: 24px;
-    color: $defaultTextColorMiddle;
-  }
+    p {
+      padding-bottom: $distanceSmall;
+      font-weight: 600;
+      font-size: 24px;
+      color: $defaultTextColorMiddle;
+    }
 
-  label {
-    font-family: "Muli", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 125%;
-    letter-spacing: 0.02em;
-    font-size: 12px;
-    color: $defaultTextColorDark;
-  }
+    label {
+      font-family: "Muli", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 125%;
+      letter-spacing: 0.02em;
+      font-size: 12px;
+      color: $defaultTextColorDark;
+    }
 
-  input {
-    margin-bottom: 0.5rem;
-  }
+    input {
+      margin-bottom: 0.5rem;
+    }
 
-  .submit {
-    padding: 0.5rem 1rem;
-    margin-top: $distanceSmall;
-    margin-bottom: $distanceMedium;
-    align-self: center;
-    cursor: pointer;
+    .submit {
+      padding: 0.5rem 1rem;
+      margin-top: $distanceSmall;
+      margin-bottom: $distanceMedium;
+      align-self: center;
+      cursor: pointer;
 
-    color: $defaultTextColorDark;
-    background-color: $highLight;
-    border: 2px solid $highLight;
-    border-radius: 50px;
-    outline: none;
+      color: $defaultTextColorDark;
+      background-color: $highLight;
+      border: 2px solid $highLight;
+      border-radius: 50px;
+      outline: none;
 
-    font-family: "Muli", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 125%;
-    text-align: center;
-    letter-spacing: 0.02em;
+      font-family: "Muli", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 125%;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
   }
 }
