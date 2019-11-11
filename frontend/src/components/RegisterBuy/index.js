@@ -8,13 +8,12 @@ class RegisterBuy extends Component {
     const registerBuy = (
       <div className={styles.container}>
         <button
-          className={styles.buttonSecondary}
           onClick={() => {
             this.props.display_form("buy");
           }}
         >
           {" "}
-          Registrera köp
+          Registrera nytt köp
         </button>
       </div>
     );
