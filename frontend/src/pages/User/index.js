@@ -5,6 +5,8 @@ import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 import Orders from "../../components/Orders";
 
+import styles from "./index.module.scss";
+
 class User extends Component {
   _isMounted = false;
   constructor(props) {
@@ -16,7 +18,7 @@ class User extends Component {
       userLastName: "",
       userEmail: "",
       firstName: "",
-      last_name: "",
+      lastName: "",
       streetAddress: "",
       zipCode: "",
       city: "",
@@ -113,7 +115,7 @@ class User extends Component {
     }
 
     return (
-      <div>
+      <div className={styles.container}>
         <ButtonLogout handle_logout={this.handle_logout} />
         <p>
           Hello, {this.state.userFirstName} {this.state.userLastName}
