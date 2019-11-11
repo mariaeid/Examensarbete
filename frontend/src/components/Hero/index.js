@@ -38,9 +38,7 @@ class Hero extends Component {
               <div className={styles.readMoreContainer}>
                 <p className={styles.text}>Läs mer</p>
                 <IconContext.Provider value={{ color: "white", size: "2rem" }}>
-                  <div>
-                    <FiChevronsDown />
-                  </div>
+                  <FiChevronsDown />
                 </IconContext.Provider>
               </div>
             </Link>
