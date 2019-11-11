@@ -1,0 +1,54 @@
+@import "../../variables.scss";
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $distanceMedium;
+
+  background-color: $defaultBackgroundDark;
+  margin-top: $distanceMedium;
+  margin-bottom: $distanceMedium;
+
+  .upText {
+    align-self: flex-end;
+
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 188%;
+    letter-spacing: 0.02em;
+    color: $highLight;
+  }
+
+  .titleText {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 188%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: $defaultTextColorLight;
+  }
+
+  .iconsContainer {
+    display: flex;
+    justify-content: center;
+
+    .iconContainer {
+      display: flex;
+      align-items: center;
+      margin-right: $distanceMedium;
+      margin-left: $distanceMedium;
+
+      p {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 188%;
+        letter-spacing: 0.02em;
+        color: $defaultTextColorLight;
+      }
+    }
+  }
+}
