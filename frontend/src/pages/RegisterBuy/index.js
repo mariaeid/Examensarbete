@@ -4,8 +4,10 @@ import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
 import CurrentBuyer from "../../components/CurrentBuyer";
-import Products from "../../components/Products";
+import OrderedProducts from "../../components/OrderedProducts";
 import CartForm from "../../components/CartForm";
+
+import styles from "./index.module.scss";
 
 class User extends Component {
   constructor(props) {
@@ -84,15 +86,18 @@ class User extends Component {
       return <Redirect to="/" />;
     } else {
       return (
-        <div>
+        <div className={styles.container}>
           <ButtonLogout handle_logout={this.handle_logout} />
+          <h4 className={styles.buyerTitle}>Köpare</h4>
           <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
           <CartForm
             currentBuyer={this.props.location.state.currentBuyer}
             handle_cart={this.handle_cart}
             // handle_update_cart={this.handle_update_cart}
           />
-          <Products currentBuyer={this.props.location.state.currentBuyer} />
+          <OrderedProducts
+            currentBuyer={this.props.location.state.currentBuyer}
+          />
         </div>
       );
     }
