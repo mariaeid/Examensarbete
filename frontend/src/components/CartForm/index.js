@@ -31,16 +31,17 @@ class CartForm extends React.Component {
 
   render() {
     return (
-      <div className={styles.container}>
+      <div className={styles.cartFormContainer}>
         <form
+          className={styles.cartForm}
           onSubmit={e => {
             this.props.handle_cart(e, this.state);
             // this.props.handle_update_cart(e, this.state);
             this.props.sendData("update");
           }}
         >
-          <h4>Lägg till i varukorg</h4>
-          <label htmlFor="firstName">Produktnummer</label>
+          <h4>Lägg till vara i beställning</h4>
+          <label htmlFor="firstName">Artikelnummer:</label>
           <input
             type="number"
             name="productId"
@@ -48,7 +49,11 @@ class CartForm extends React.Component {
             onChange={this.handle_change}
           />
           <input type="hidden" name="buyerId" value={this.state.buyerId} />
-          <input type="submit" value="Lägg till" />
+          <input
+            className={styles.cartFormSubmit}
+            type="submit"
+            value="Lägg till"
+          />
         </form>
       </div>
     );
