@@ -38,21 +38,45 @@ class Auth extends Component {
 
   handle_login = (e, data) => {
     e.preventDefault();
-    fetch("http://localhost:8000/token-auth/", {
-      method: "POST",
+    // fetch("http://localhost:8000/token-auth/", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+    //   .then(res => res.json())
+    //   .then(json => {
+    //     localStorage.setItem("token", json.token);
+    //     this.setState({
+    //       logged_in: true,
+    //       displayed_form: "",
+    //       username: json.user.username
+    //     });
+    //   });
+    console.log("Login data", data);
+    axios({
+      method: "post",
+      url: base_url + "/token-auth/",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(data)
+      data: {
+        username: data.username,
+        password: data.password
+      }
     })
-      .then(res => res.json())
-      .then(json => {
-        localStorage.setItem("token", json.token);
+      .then(response => {
+        console.log("Res", response);
+        localStorage.setItem("token", response.data.token);
         this.setState({
           logged_in: true,
           displayed_form: "",
-          username: json.user.username
+          username: response.data.user.username
         });
+      })
+      .catch(error => {
+        console.log(error.responseta);
       });
   };
 
