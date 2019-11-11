@@ -6,12 +6,22 @@ import styles from "./index.module.scss";
 const Buyer = props => {
   return (
     <div className={styles.container}>
-      <p>{props.firstName}</p>
-      <p>{props.lastName}</p>
+      <div className={styles.rowContainer}>
+        <p>
+          {props.firstName}
+          <span>&nbsp;</span>
+        </p>
+        <p>{props.lastName}</p>
+      </div>
       <p>{props.streetAddress}</p>
-      <p>{props.zipCode}</p>
-      <p>{props.city}</p>
-      <p>{props.phone}</p>
+      <div className={styles.rowContainer}>
+        <p>
+          {props.zipCode}
+          <span>&nbsp;</span>
+        </p>
+        <p>{props.city}</p>
+      </div>
+      <p>Tel. {props.phone}</p>
     </div>
   );
 };
