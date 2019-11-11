@@ -38,13 +38,16 @@ class SignupForm extends React.Component {
       return null;
     }
     return (
-      <div className={styles.container}>
+      <div className={styles.signupFormContainer}>
         <IconContext.Provider value={{ color: "#291502", size: "1.5rem" }}>
           <div className={styles.icon}>
             <MdClose onClick={this.onClose} />
           </div>
         </IconContext.Provider>
-        <form onSubmit={e => this.props.handle_signup(e, this.state)}>
+        <form
+          className={styles.signupForm}
+          onSubmit={e => this.props.handle_signup(e, this.state)}
+        >
           <p>Skapa konto</p>
           <label htmlFor="username">Mail</label>
           <input
