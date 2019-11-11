@@ -23,10 +23,13 @@
     width: 1em;
   }
   .projectsContainer::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+    margin: 6rem;
+    border-radius: 5px;
   }
   .projectsContainer::-webkit-scrollbar-thumb {
-    background-color: rgba(23, 23, 22, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     outline: 1px solid $defaultBackgroundDark;
+    border-radius: 10px;
   }
 }
