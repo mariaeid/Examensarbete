@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FiChevronsDown } from "react-icons/fi";
 import { IconContext } from "react-icons";
+import { Link, AnimateScroll as Scroll } from "react-scroll";
 
 import Auth from "../Auth";
 
@@ -33,14 +34,16 @@ class Hero extends Component {
           <div className={styles.overlayContainer}>
             <p className={styles.title}>Tillsammans förbättrar vi världen</p>
             <Auth />
-            <div className={styles.readMoreContainer}>
-              <p className={styles.text}>Läs mer</p>
-              <IconContext.Provider value={{ color: "white", size: "2rem" }}>
-                <div>
-                  <FiChevronsDown />
-                </div>
-              </IconContext.Provider>
-            </div>
+            <Link to="main" spy={true} smooth={true} duration={500}>
+              <div className={styles.readMoreContainer}>
+                <p className={styles.text}>Läs mer</p>
+                <IconContext.Provider value={{ color: "white", size: "2rem" }}>
+                  <div>
+                    <FiChevronsDown />
+                  </div>
+                </IconContext.Provider>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
