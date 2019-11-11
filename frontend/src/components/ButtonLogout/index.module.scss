@@ -6,5 +6,10 @@ button {
   background-color: transparent;
   border: none;
   outline: none;
-  color: $defaultTextColorMiddle;
+  color: $highLight;
+  font-family: Muli;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 125%;
+  letter-spacing: 0.02em;
 }
