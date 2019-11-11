@@ -33,6 +33,5 @@ class LoginSignUp extends Component {
 export default LoginSignUp;
 
 LoginSignUp.propTypes = {
-  logged_in: PropTypes.bool.isRequired,
   display_form: PropTypes.func.isRequired
 };

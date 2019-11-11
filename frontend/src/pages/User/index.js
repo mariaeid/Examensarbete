@@ -4,6 +4,7 @@ import ButtonLogout from "../../components/ButtonLogout";
 import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 import Orders from "../../components/Orders";
+import { handle_logout } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
@@ -25,6 +26,7 @@ class User extends Component {
       phone: "",
       buyerId: ""
     };
+    this.handle_logout = this.handle_logout.bind(this);
   }
 
   componentDidMount() {
@@ -54,11 +56,11 @@ class User extends Component {
     this._isMounted = false;
   }
 
-  handle_logout = () => {
-    localStorage.removeItem("token");
-    this.setState({ logged_in: false, username: "" });
+  handle_logout(e) {
+    handle_logout();
+    this.setState({ username: "" });
     this.props.history.push("/");
-  };
+  }
 
   handle_buy = (e, data) => {
     console.log(data);

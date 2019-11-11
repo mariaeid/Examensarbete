@@ -44,7 +44,11 @@ class Home extends Component {
           exact
           path="/"
           render={() =>
-            this.state.logged_in ? <Redirect to="/user" /> : <Redirect to="/" />
+            localStorage.getItem("access_token") ? (
+              <Redirect to="/user" />
+            ) : (
+              <Redirect to="/" />
+            )
           }
         />
         <Hero />
