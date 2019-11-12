@@ -44,10 +44,29 @@ video {
         color: #fff;
       }
 
+      .icon {
+        animation-name: upDown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
       img {
         height: 45%;
         margin-bottom: $distanceSmall;
       }
     }
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(0.2rem);
+  }
+  100% {
+    transform: translateY(0rem);
   }
 }

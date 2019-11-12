@@ -13,7 +13,6 @@ class LoginSignUp extends Component {
             this.props.display_form("login");
           }}
         >
-          {" "}
           Logga in
         </button>
         <button

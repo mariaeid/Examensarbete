@@ -51,6 +51,14 @@
       line-height: 125%;
       text-align: center;
       letter-spacing: 0.02em;
+
+      transition: 0.5s;
+    }
+
+    .cartFormSubmit:hover,
+    .cartFormSubmit:focus {
+      box-shadow: inset 0 0 0 2em #e98325;
+      border-color: #e98325;
     }
   }
 }

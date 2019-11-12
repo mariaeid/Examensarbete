@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 
 class ButtonPrimary extends Component {
   render() {
-    return <button className={styles.ButtonPrimary}>Logga in</button>;
+    return <button className={styles.buttonPrimary}>Logga in</button>;
   }
 }
 
