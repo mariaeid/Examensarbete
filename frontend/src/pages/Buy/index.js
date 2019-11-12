@@ -75,6 +75,10 @@ class Buy extends Component {
   // };
 
   render() {
+    if (!localStorage.getItem("access_token")) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className={styles.container}>
         <ButtonLogout />

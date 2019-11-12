@@ -70,13 +70,10 @@ class User extends Component {
   };
 
   render() {
-    // if (!localStorage.getItem("access_token")) {
-    //   return <Redirect to="/" />;
-    // }
-    //
-    // if (!localStorage.getItem("username")) {
-    //   return <Redirect to="/" />;
-    // }
+    if (!localStorage.getItem("access_token")) {
+      return <Redirect to="/" />;
+    }
+
     let form;
     switch (this.state.displayed_form) {
       case "buy":
