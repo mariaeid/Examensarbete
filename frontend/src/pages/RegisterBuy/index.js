@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
+import { handle_logout } from "../../utils/JWTAuth.js";
 import ButtonLogout from "../../components/ButtonLogout";
 import CurrentBuyer from "../../components/CurrentBuyer";
 import OrderedProducts from "../../components/OrderedProducts";
@@ -75,11 +76,11 @@ class User extends Component {
   //   console.log("UPDATED", this.state.productId);
   // };
 
-  handle_logout = () => {
-    localStorage.removeItem("token");
-    this.setState({ logged_in: false, username: "" });
+  handle_logout(e) {
+    handle_logout();
+    this.setState({ username: "" });
     this.props.history.push("/");
-  };
+  }
 
   render() {
     if (!this.props.location.state) {
