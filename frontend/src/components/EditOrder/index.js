@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 
 import Buyer from "../Buyer";
 import Product from "../Product";
@@ -59,8 +58,7 @@ class EditOrder extends Component {
             return (
               <div>
                 <Product
-                  key={cart.id}
-                  key={product.id}
+                  key={product.productid}
                   productId={cart.productId}
                   name={product.name}
                   price={product.price}
