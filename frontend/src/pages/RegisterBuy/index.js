@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
-import { handle_logout } from "../../utils/JWTAuth.js";
 import ButtonLogout from "../../components/ButtonLogout";
 import CurrentBuyer from "../../components/CurrentBuyer";
 import OrderedProducts from "../../components/OrderedProducts";
@@ -10,39 +9,38 @@ import CartForm from "../../components/CartForm";
 
 import styles from "./index.module.scss";
 
-class User extends Component {
+class RegisterBuy extends Component {
   constructor(props) {
     super(props);
     // this.updated = true;
     this.state = {
-      logged_in: localStorage.getItem("token") ? true : false,
-      username: "",
+      username: localStorage.getItem("username"),
       buyerId: "",
       productId: "",
       updated: false
     };
   }
 
-  componentDidMount() {
-    if (this.state.logged_in) {
-      console.log("Logged in");
-      fetch("http://localhost:8000/core/current_user/", {
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("token")}`
-        }
-      })
-        .then(res => res.json())
-        .then(json => {
-          this.setState({
-            username: json.username
-          });
-        });
-    } else {
-      console.log("Not logged in");
-    }
-
-    console.log("Logged in Register Buy", this.state.logged_in);
-  }
+  // componentDidMount() {
+  //   if (this.state.logged_in) {
+  //     console.log("Logged in");
+  //     fetch("http://localhost:8000/core/current_user/", {
+  //       headers: {
+  //         Authorization: `JWT ${localStorage.getItem("token")}`
+  //       }
+  //     })
+  //       .then(res => res.json())
+  //       .then(json => {
+  //         this.setState({
+  //           username: json.username
+  //         });
+  //       });
+  //   } else {
+  //     console.log("Not logged in");
+  //   }
+  //
+  //   console.log("Logged in Register Buy", this.state.logged_in);
+  // }
 
   handle_cart = (e, data) => {
     e.preventDefault();
@@ -76,33 +74,31 @@ class User extends Component {
   //   console.log("UPDATED", this.state.productId);
   // };
 
-  handle_logout(e) {
-    handle_logout();
-    this.setState({ username: "" });
-    this.props.history.push("/");
-  }
-
   render() {
-    if (!this.props.location.state) {
-      return <Redirect to="/" />;
-    } else {
-      return (
-        <div className={styles.container}>
-          <ButtonLogout handle_logout={this.handle_logout} />
-          <h4 className={styles.buyerTitle}>Köpare</h4>
-          <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
-          <CartForm
-            currentBuyer={this.props.location.state.currentBuyer}
-            handle_cart={this.handle_cart}
-            // handle_update_cart={this.handle_update_cart}
-          />
-          <OrderedProducts
-            currentBuyer={this.props.location.state.currentBuyer}
-          />
-        </div>
-      );
-    }
+    return (
+      <div className={styles.container}>
+        <ButtonLogout />
+        <h4 className={styles.buyerTitle}>Köpare</h4>
+        <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
+        <CartForm
+          currentBuyer={this.props.location.state.currentBuyer}
+          handle_cart={this.handle_cart}
+          // handle_update_cart={this.handle_update_cart}
+        />
+        <OrderedProducts
+          currentBuyer={this.props.location.state.currentBuyer}
+        />
+      </div>
+    );
   }
 }
 
-export default User;
+export default withRouter(RegisterBuy);
+
+// console.log(this.state.username);
+// if (!this.state.username) {
+//   return <Redirect to="/" />;
+// } else {
+//
+//
+//
