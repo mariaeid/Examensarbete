@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Buyer(models.Model):
   firstName = models.CharField(max_length=120)
@@ -8,7 +9,7 @@ class Buyer(models.Model):
   city = models.CharField(max_length=120)
   phone = models.CharField(max_length=120, blank=True)
   buyerId = models.IntegerField(blank=True, primary_key=True)
-  username = models.CharField(max_length=120, blank=True)
+  sellerName = models.CharField(max_length=120, blank=True)
 
   def _str_(self):
     return self.title
