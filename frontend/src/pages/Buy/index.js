@@ -75,7 +75,7 @@ class Buy extends Component {
   // };
 
   render() {
-    if (!localStorage.getItem("access_token")) {
+    if (!localStorage.getItem("username")) {
       return <Redirect to="/" />;
     }
 
