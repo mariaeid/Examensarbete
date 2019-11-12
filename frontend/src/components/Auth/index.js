@@ -3,7 +3,6 @@ import { Redirect } from "react-router";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-import { handle_login, handle_signup } from "../../utils/JWTAuth.js";
 import LoginSignUp from "../LoginSignUp";
 import LoginForm from "../LoginForm";
 import SignupForm from "../SignupForm";
@@ -13,31 +12,16 @@ class Auth extends Component {
     super(props);
     this.state = {
       displayed_form: "",
-      logged_in: localStorage.getItem("logged_in") ? true : false,
       username: "",
       password: "",
       first_name: "",
       last_name: ""
     };
-    this.handle_login = this.handle_login.bind(this);
-    this.handle_signup = this.handle_signup.bind(this);
   }
 
   updateStates = () => {
-    this.setState({ logged_in: localStorage.getItem("logged_in") });
+    this.setState({ username: localStorage.getItem("username") });
   };
-
-  handle_login(e, data) {
-    console.log("DATA", data);
-    handle_login(data);
-    // this.forceUpdate();
-  }
-
-  handle_signup(e, data) {
-    console.log("SIGN UP DATA", data);
-    handle_signup(data);
-    // this.forceUpdate();
-  }
 
   display_form = form => {
     this.setState({
@@ -58,10 +42,10 @@ class Auth extends Component {
     let form;
     switch (this.state.displayed_form) {
       case "login":
-        form = <LoginForm handle_login={this.handle_login} />;
+        form = <LoginForm />;
         break;
       case "signup":
-        form = <SignupForm handle_signup={this.handle_signup} />;
+        form = <SignupForm />;
         break;
       default:
         form = null;
