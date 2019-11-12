@@ -19,7 +19,7 @@ class Hero extends Component {
 
   render() {
     return (
-      <div className={styles.container}>
+      <div className={styles.container} id="top">
         <video id="background-video" loop autoPlay>
           <source src={this.state.videoURL} type="video/mp4" />
           <source src={this.state.videoURL} type="video/ogg" />
