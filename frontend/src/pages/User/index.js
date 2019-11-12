@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, Redirect } from "react-router";
 
 import ButtonLogout from "../../components/ButtonLogout";
 import BuyerForm from "../../components/BuyerForm";
@@ -9,56 +10,40 @@ import { handle_logout } from "../../utils/JWTAuth.js";
 import styles from "./index.module.scss";
 
 class User extends Component {
-  _isMounted = false;
+  // _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
-      logged_in: localStorage.getItem("token") ? true : false,
-      username: "",
-      userFirstName: "",
-      userLastName: "",
-      userEmail: "",
+      // logged_in: localStorage.getItem("token") ? true : false,
+      username: localStorage.getItem("username"),
+      userFirstName: localStorage.getItem("firstName"),
+      userLastName: localStorage.getItem("lastName"),
+      buyerId: "",
       firstName: "",
       lastName: "",
       streetAddress: "",
       zipCode: "",
       city: "",
       phone: "",
-      buyerId: ""
+      buyerId: "",
+      displayed_form: ""
     };
     this.handle_logout = this.handle_logout.bind(this);
   }
 
   componentDidMount() {
-    this._isMounted = true;
-    if (this.state.logged_in) {
-      console.log("Logged in");
-      fetch("http://localhost:8000/core/current_user/", {
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("token")}`
-        }
-      })
-        .then(res => res.json())
-        .then(json => {
-          this.setState({
-            username: json.username,
-            userFirstName: json.firstName,
-            userLastName: json.lastName,
-            userEmail: json.email
-          });
-        });
-    } else {
-      console.log("Not logged in");
-    }
+    console.log("Username from User", this.state.username);
+    console.log("firstName from User", this.state.userFirstName);
+    // this._isMounted = true;
   }
 
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
+  // componentWillUnmount() {
+  //   this._isMounted = false;
+  // }
 
   handle_logout(e) {
     handle_logout();
-    this.setState({ username: "" });
+    // this.setState({ username: "" });
     this.props.history.push("/");
   }
 
@@ -76,7 +61,7 @@ class User extends Component {
       .then(json => {
         this.setState({
           firstName: json.firstName,
-          last_name: json.lastName,
+          lastName: json.lastName,
           streetAddress: json.streeAddress,
           zipCode: json.zipCode,
           city: json.city,
@@ -86,12 +71,12 @@ class User extends Component {
         });
       })
       .then(() => {
-        if (this._isMounted) {
-          this.props.history.push({
-            pathname: "/buy",
-            state: { currentBuyer: this.state.buyerId }
-          });
-        }
+        // if (this._isMounted) {
+        this.props.history.push({
+          pathname: "/buy",
+          state: { currentBuyer: this.state.buyerId }
+        });
+        // }
       });
   };
 
@@ -102,6 +87,13 @@ class User extends Component {
   };
 
   render() {
+    // if (!localStorage.getItem("access_token")) {
+    //   return <Redirect to="/" />;
+    // }
+    //
+    // if (!localStorage.getItem("username")) {
+    //   return <Redirect to="/" />;
+    // }
     let form;
     switch (this.state.displayed_form) {
       case "buy":
@@ -120,7 +112,7 @@ class User extends Component {
       <div className={styles.container}>
         <ButtonLogout handle_logout={this.handle_logout} />
         <p>
-          Hello, {this.state.userFirstName} {this.state.userLastName}
+          Hello, {localStorage.getItem("firstName")} {this.state.userLastName}
         </p>
         <RegisterBuy display_form={this.display_form} />
         {form}
