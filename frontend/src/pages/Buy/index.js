@@ -9,7 +9,7 @@ import CartForm from "../../components/CartForm";
 
 import styles from "./index.module.scss";
 
-class RegisterBuy extends Component {
+class Buy extends Component {
   constructor(props) {
     super(props);
     // this.updated = true;
@@ -93,7 +93,7 @@ class RegisterBuy extends Component {
   }
 }
 
-export default withRouter(RegisterBuy);
+export default withRouter(Buy);
 
 // console.log(this.state.username);
 // if (!this.state.username) {

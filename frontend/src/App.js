@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import User from "./pages/User";
-import RegisterBuy from "./pages/RegisterBuy";
+import Buy from "./pages/Buy";
 import EditBuy from "./pages/EditBuy";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <div className="content">
           <Route path="/" exact strict component={Home} />
           <Route path="/user" exact strict component={User} />
-          <Route path="/buy" exact strict component={RegisterBuy} />
+          <Route path="/buy" exact strict component={Buy} />
           <Route
             path="/editBuy/:currentBuyerId"
             exact
