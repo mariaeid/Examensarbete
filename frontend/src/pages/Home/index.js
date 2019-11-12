@@ -38,19 +38,12 @@ class Home extends Component {
   }
 
   render() {
+    if (localStorage.getItem("access_token")) {
+      return <Redirect to="/user" />;
+    }
+
     return (
       <div>
-        <Route
-          exact
-          path="/"
-          render={() =>
-            localStorage.getItem("access_token") ? (
-              <Redirect to="/user" />
-            ) : (
-              <Redirect to="/" />
-            )
-          }
-        />
         <Hero />
         <div id="main"></div>
         {this.state.mainContents.map((mainContent, key) => (
@@ -84,3 +77,15 @@ class Home extends Component {
 }
 
 export default Home;
+
+// <Route
+//   exact
+//   path="/"
+//   // render={() =>
+//   //   localStorage.getItem("access_token") ? (
+//   //     <Redirect to="/user" />
+//   //   ) : (
+//   //     <Redirect to="/" />
+//   //   )
+//   // }
+// />
