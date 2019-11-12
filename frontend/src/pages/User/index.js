@@ -5,19 +5,16 @@ import ButtonLogout from "../../components/ButtonLogout";
 import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 import Orders from "../../components/Orders";
-import { handle_logout } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
 class User extends Component {
-  // _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
-      // logged_in: localStorage.getItem("token") ? true : false,
       username: localStorage.getItem("username"),
-      userFirstName: localStorage.getItem("firstName"),
-      userLastName: localStorage.getItem("lastName"),
+      userFirstName: localStorage.getItem("first_name"),
+      userLastName: localStorage.getItem("last_name"),
       buyerId: "",
       firstName: "",
       lastName: "",
@@ -28,23 +25,11 @@ class User extends Component {
       buyerId: "",
       displayed_form: ""
     };
-    this.handle_logout = this.handle_logout.bind(this);
   }
 
   componentDidMount() {
     console.log("Username from User", this.state.username);
     console.log("firstName from User", this.state.userFirstName);
-    // this._isMounted = true;
-  }
-
-  // componentWillUnmount() {
-  //   this._isMounted = false;
-  // }
-
-  handle_logout(e) {
-    handle_logout();
-    // this.setState({ username: "" });
-    this.props.history.push("/");
   }
 
   handle_buy = (e, data) => {
@@ -71,12 +56,10 @@ class User extends Component {
         });
       })
       .then(() => {
-        // if (this._isMounted) {
         this.props.history.push({
           pathname: "/buy",
           state: { currentBuyer: this.state.buyerId }
         });
-        // }
       });
   };
 
@@ -100,7 +83,7 @@ class User extends Component {
         form = (
           <BuyerForm
             handle_buy={this.handle_buy}
-            loggedInUsername={this.state.username}
+            loggedInUsername={localStorage.getItem("username")}
           />
         );
         break;
@@ -110,9 +93,9 @@ class User extends Component {
 
     return (
       <div className={styles.container}>
-        <ButtonLogout handle_logout={this.handle_logout} />
+        <ButtonLogout history={this.props.history} />
         <p>
-          Hello, {localStorage.getItem("firstName")} {this.state.userLastName}
+          Hello, {localStorage.getItem("username")} {this.state.userLastName}
         </p>
         <RegisterBuy display_form={this.display_form} />
         {form}
