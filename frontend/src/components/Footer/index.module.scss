@@ -4,14 +4,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: $distanceMedium;
 
   background-color: $defaultBackgroundDark;
-  margin-top: $distanceMedium;
-  margin-bottom: $distanceMedium;
+  padding: 2rem 3rem 3rem 2rem;
 
   .upText {
     align-self: flex-end;
+    cursor: pointer;
 
     font-style: normal;
     font-weight: 300;
@@ -22,6 +21,7 @@
   }
 
   .titleText {
+    padding-bottom: $distanceSmall;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
