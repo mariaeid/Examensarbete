@@ -1,16 +1,28 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withRouter, Link } from "react-router-dom";
+
+import { handle_logout } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
 class ButtonLogout extends Component {
+  handle_logout(e) {
+    handle_logout();
+  }
   render() {
-    return <button onClick={this.props.handle_logout}>Logga ut</button>;
+    return (
+      <div>
+        <Link to="/">
+          <button onClick={this.handle_logout}>Logga ut</button>{" "}
+        </Link>
+      </div>
+    );
   }
 }
 
-export default ButtonLogout;
+export default withRouter(ButtonLogout);
 
-ButtonLogout.propTypes = {
-  handle_logout: PropTypes.func.isRequired
-};
+// ButtonLogout.propTypes = {
+//   handle_logout: PropTypes.func.isRequired
+// };
