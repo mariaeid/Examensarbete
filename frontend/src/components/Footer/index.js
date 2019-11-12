@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FiChevronsDown } from "react-icons/fi";
+import { Link, AnimateScroll as Scroll } from "react-scroll";
 import { IconContext } from "react-icons";
 import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoTwitter } from "react-icons/io";
@@ -12,7 +12,15 @@ import styles from "./index.module.scss";
 const Footer = props => {
   return (
     <div className={styles.footerContainer}>
-      <p className={styles.upText}>{props.upText}</p>
+      <Link
+        to="top"
+        spy={true}
+        smooth={true}
+        duration={500}
+        className={styles.upText}
+      >
+        <p>{props.upText}</p>
+      </Link>
       <p className={styles.titleText}>{props.title}</p>
       <div className={styles.iconsContainer}>
         <div className={styles.iconContainer}>
