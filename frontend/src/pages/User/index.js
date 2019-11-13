@@ -5,6 +5,7 @@ import Logout from "../../components/Logout";
 import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 import Orders from "../../components/Orders";
+import WelcomePhrase from "../../components/WelcomePhrase";
 
 import styles from "./index.module.scss";
 
@@ -92,7 +93,13 @@ class User extends Component {
       <div className={styles.container}>
         <Logout />
         <p>
-          Hello, {localStorage.getItem("username")} {this.state.userLastName}
+          {localStorage.getItem("username") ? (
+            <WelcomePhrase
+              text={"Inloggad som " + localStorage.getItem("username")}
+            />
+          ) : (
+            <WelcomePhrase text="Välkommen som ny användare!" />
+          )}
         </p>
         <RegisterBuy display_form={this.display_form} />
         {form}
