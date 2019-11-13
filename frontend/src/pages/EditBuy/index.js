@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
-import ButtonLogout from "../../components/ButtonLogout";
+import Logout from "../../components/Logout";
 import EditOrder from "../../components/EditOrder";
 import EditBuyerForm from "../../components/EditBuyerForm";
 
@@ -57,7 +57,7 @@ class EditBuy extends Component {
     // } else {
     return (
       <div className={styles.container}>
-        <ButtonLogout handle_logout={this.handle_logout} />
+        <Logout handle_logout={this.handle_logout} />
         <EditBuyerForm
           // handle_edit_buyer={this.handle_edit_buyer}
           currentBuyer={this.state.buyerId}

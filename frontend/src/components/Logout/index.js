@@ -6,7 +6,7 @@ import { handle_logout } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
-class ButtonLogout extends Component {
+class Logout extends Component {
   handle_logout(e) {
     handle_logout();
   }
@@ -21,8 +21,4 @@ class ButtonLogout extends Component {
   }
 }
 
-export default withRouter(ButtonLogout);
-
-// ButtonLogout.propTypes = {
-//   handle_logout: PropTypes.func.isRequired
-// };
+export default withRouter(Logout);

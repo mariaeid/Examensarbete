@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
-import ButtonLogout from "../../components/ButtonLogout";
+import Logout from "../../components/Logout";
 import CurrentBuyer from "../../components/CurrentBuyer";
 import OrderedProducts from "../../components/OrderedProducts";
 import CartForm from "../../components/CartForm";
@@ -81,7 +81,7 @@ class Buy extends Component {
 
     return (
       <div className={styles.container}>
-        <ButtonLogout />
+        <Logout />
         <h4 className={styles.buyerTitle}>Köpare</h4>
         <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
         <CartForm

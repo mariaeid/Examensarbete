@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router";
 
-import ButtonLogout from "../../components/ButtonLogout";
+import Logout from "../../components/Logout";
 import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 import Orders from "../../components/Orders";
@@ -90,7 +90,7 @@ class User extends Component {
 
     return (
       <div className={styles.container}>
-        <ButtonLogout history={this.props.history} />
+        <Logout history={this.props.history} />
         <p>
           Hello, {localStorage.getItem("username")} {this.state.userLastName}
         </p>
