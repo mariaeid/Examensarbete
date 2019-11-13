@@ -40,8 +40,10 @@
       align-items: center;
       margin-right: $distanceMedium;
       margin-left: $distanceMedium;
+      cursor: pointer;
 
       p {
+        margin-left: 0.2rem;
         font-style: normal;
         font-weight: 300;
         font-size: 12px;
