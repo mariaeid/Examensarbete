@@ -6,6 +6,7 @@ video {
   position: relative;
   z-index: 0;
   object-fit: cover;
+  object-position: 35% 100%;
 }
 .overlay {
   position: absolute;
@@ -23,6 +24,8 @@ video {
     padding-top: 5rem;
 
     .title {
+      padding-left: $distanceSmall;
+      padding-right: $distanceSmall;
       text-align: center;
       font-weight: 800;
       font-size: 36px;
@@ -68,5 +71,11 @@ video {
   }
   100% {
     transform: translateY(0rem);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .overlayContainer {
+    padding-top: 2.5rem;
   }
 }

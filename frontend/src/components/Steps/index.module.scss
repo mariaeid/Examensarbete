@@ -8,7 +8,13 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   width: 100%;
-  background-color: $defaultBackgroundDark;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    #000000 10%,
+    #000000 95%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   color: $defaultTextColorLight;
 
   .mainTitle {

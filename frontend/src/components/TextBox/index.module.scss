@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $distanceMedium 4rem;
+  justify-content: center;
+  padding: $distanceLarge 4rem;
   text-align: center;
 
   .title {
@@ -21,5 +22,15 @@
     color: $defaultTextColorDark;
     font-weight: normal;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: $distanceLarge $distanceMedium;
+
+    .title {
+      width: 100%;
+    }
   }
 }

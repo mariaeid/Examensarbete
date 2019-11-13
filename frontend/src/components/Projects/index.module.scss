@@ -16,9 +16,6 @@
     -ms-overflow-style: none;
     align-items: stretch;
   }
-  // .projectsContainer::-webkit-scrollbar {
-  //   display: none;
-  // }
   .projectsContainer::-webkit-scrollbar {
     width: 1em;
   }
@@ -31,5 +28,11 @@
     background-color: rgba(0, 0, 0, 0.7);
     outline: 1px solid $defaultBackgroundDark;
     border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .projectsContainer::-webkit-scrollbar-track {
+    margin: 2.5rem !important;
   }
 }
