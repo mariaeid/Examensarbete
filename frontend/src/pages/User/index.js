@@ -90,7 +90,7 @@ class User extends Component {
 
     return (
       <div className={styles.container}>
-        <Logout history={this.props.history} />
+        <Logout />
         <p>
           Hello, {localStorage.getItem("username")} {this.state.userLastName}
         </p>

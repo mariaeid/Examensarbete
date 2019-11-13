@@ -57,7 +57,7 @@ class EditBuy extends Component {
     // } else {
     return (
       <div className={styles.container}>
-        <Logout handle_logout={this.handle_logout} />
+        <Logout />
         <EditBuyerForm
           // handle_edit_buyer={this.handle_edit_buyer}
           currentBuyer={this.state.buyerId}
