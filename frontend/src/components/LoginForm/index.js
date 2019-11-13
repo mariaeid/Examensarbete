@@ -13,7 +13,6 @@ class LoginForm extends React.Component {
     this.state = {
       username: "",
       password: ""
-      // logged_in: true
     };
   }
 
@@ -50,20 +49,22 @@ class LoginForm extends React.Component {
           onSubmit={e => handle_login(e, this.state)}
         >
           <p>Logga in</p>
-          <label htmlFor="username">Mail</label>
-          <input
-            type="email"
-            name="username"
-            value={this.state.username}
-            onChange={this.handle_change}
-          />
-          <label htmlFor="password">Lösenord</label>
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handle_change}
-          />
+          <div className={styles.formFiledsContainer}>
+            <label htmlFor="username">Mail</label>
+            <input
+              type="email"
+              name="username"
+              value={this.state.username}
+              onChange={this.handle_change}
+            />
+            <label htmlFor="password">Lösenord</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handle_change}
+            />
+          </div>
           <input className={styles.submit} type="submit" value="Logga in" />
         </form>
       </div>

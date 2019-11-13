@@ -50,34 +50,36 @@ class SignupForm extends React.Component {
           onSubmit={e => handle_signup(e, this.state)}
         >
           <p>Skapa konto</p>
-          <label htmlFor="username">Mail</label>
-          <input
-            type="email"
-            name="username"
-            value={this.state.username}
-            onChange={this.handle_change}
-          />
-          <label htmlFor="firstName">Förnamn</label>
-          <input
-            type="text"
-            name="first_name"
-            value={this.state.first_name}
-            onChange={this.handle_change}
-          />
-          <label htmlFor="lastName">Efternamn</label>
-          <input
-            type="text"
-            name="last_name"
-            value={this.state.last_name}
-            onChange={this.handle_change}
-          />
-          <label htmlFor="password">Lösenord</label>
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handle_change}
-          />
+          <div className={styles.formFiledsContainer}>
+            <label htmlFor="username">Mail</label>
+            <input
+              type="email"
+              name="username"
+              value={this.state.username}
+              onChange={this.handle_change}
+            />
+            <label htmlFor="firstName">Förnamn</label>
+            <input
+              type="text"
+              name="first_name"
+              value={this.state.first_name}
+              onChange={this.handle_change}
+            />
+            <label htmlFor="lastName">Efternamn</label>
+            <input
+              type="text"
+              name="last_name"
+              value={this.state.last_name}
+              onChange={this.handle_change}
+            />
+            <label htmlFor="password">Lösenord</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handle_change}
+            />
+          </div>
           <input className={styles.submit} type="submit" value="Skicka" />
         </form>
       </div>
@@ -86,7 +88,3 @@ class SignupForm extends React.Component {
 }
 
 export default SignupForm;
-
-SignupForm.propTypes = {
-  // handle_signup: PropTypes.func.isRequired
-};

@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 90%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -25,9 +25,17 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    justify-content: space-around;
+
+    .formFiledsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin-top: $distanceSmall;
+      margin-bottom: $distanceSmall;
+    }
 
     p {
-      padding-bottom: $distanceSmall;
       font-weight: 600;
       font-size: 24px;
       color: $defaultTextColorMiddle;
@@ -50,8 +58,6 @@
 
     .submit {
       padding: 0.5rem 2rem;
-      margin-top: $distanceSmall;
-      margin-bottom: $distanceMedium;
       align-self: center;
       cursor: pointer;
 
