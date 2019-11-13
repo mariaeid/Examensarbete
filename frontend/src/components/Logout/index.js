@@ -12,9 +12,11 @@ class Logout extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.logoutContainer}>
         <Link to="/">
-          <button onClick={this.handle_logout}>Logga ut</button>{" "}
+          <button className={styles.logoutButton} onClick={this.handle_logout}>
+            Logga ut
+          </button>
         </Link>
       </div>
     );

@@ -1,15 +1,18 @@
 @import "../../variables.scss";
 
-button {
+.logoutContainer {
   align-self: flex-end;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: $highLight;
-  font-family: Muli;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 125%;
-  letter-spacing: 0.02em;
+
+  .logoutButton {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: $highLight;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 125%;
+    letter-spacing: 0.02em;
+  }
 }
