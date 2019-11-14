@@ -1,8 +1,10 @@
 import axios from "axios";
-const SERVER_URL = "http://127.0.0.1:8000";
+import { serverAddress } from "../config.js";
+
+const base_url = serverAddress;
 
 const handle_login = async (e, data) => {
-  const LOGIN_ENDPOINT = `${SERVER_URL}/token-auth/`;
+  const LOGIN_ENDPOINT = `${base_url}/token-auth/`;
 
   try {
     let response = axios({
@@ -31,7 +33,7 @@ const handle_login = async (e, data) => {
 };
 
 const handle_signup = async data => {
-  const SIGNUP_ENDPOINT = `${SERVER_URL}/core/users/`;
+  const SIGNUP_ENDPOINT = `${base_url}/core/users/`;
 
   try {
     let response = await axios({
