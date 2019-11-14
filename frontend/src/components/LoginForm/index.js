@@ -1,7 +1,7 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
 import { IconContext } from "react-icons";
-import { handle_login } from "../../utils/JWTAuth.js";
+// import { handle_login } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
 
         <form
           className={styles.loginForm}
-          onSubmit={e => handle_login(e, this.state)}
+          onSubmit={e => this.props.handle_login(e, this.state)}
         >
           <p>Logga in</p>
           <div className={styles.formFiledsContainer}>

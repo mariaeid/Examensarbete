@@ -1,7 +1,7 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
 import { IconContext } from "react-icons";
-import { handle_signup } from "../../utils/JWTAuth.js";
+// import { handle_signup } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
         </IconContext.Provider>
         <form
           className={styles.signupForm}
-          onSubmit={e => handle_signup(e, this.state)}
+          onSubmit={e => this.props.handle_signup(e, this.state)}
         >
           <p>Skapa konto</p>
           <div className={styles.formFiledsContainer}>
