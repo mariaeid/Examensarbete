@@ -28,8 +28,19 @@ class User extends Component {
   }
 
   componentDidMount() {
-    console.log("Username from User", this.state.username);
-    console.log("firstName from User", this.state.userFirstName);
+    // fetch("http://localhost:8000/core/current_user/", {
+    //   headers: {
+    //     Authorization: `JWT ${localStorage.getItem("access_token")}`
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(json => {
+    //     this.setState({
+    //       username: json.username
+    //     });
+    //   });
+    // console.log("Username from User", this.state.username);
+    // console.log("firstName from User", this.state.userFirstName);
   }
 
   handle_buy = (e, data) => {
@@ -91,13 +102,9 @@ class User extends Component {
     return (
       <div className={styles.container}>
         <Logout />
-        {localStorage.getItem("username") !== "undefined" ? (
-          <WelcomePhrase
-            text={"Inloggad som " + localStorage.getItem("username")}
-          />
-        ) : (
-          <WelcomePhrase text="Välkommen som ny användare!" />
-        )}
+        <WelcomePhrase
+          text={"Inloggad som " + localStorage.getItem("username")}
+        />
         <RegisterBuy display_form={this.display_form} />
         {form}
         <Orders loggedInUsername={this.state.username} />
