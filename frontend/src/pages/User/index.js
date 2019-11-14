@@ -91,7 +91,7 @@ class User extends Component {
     return (
       <div className={styles.container}>
         <Logout />
-        {localStorage.getItem("username") ? (
+        {localStorage.getItem("username") !== "undefined" ? (
           <WelcomePhrase
             text={"Inloggad som " + localStorage.getItem("username")}
           />
