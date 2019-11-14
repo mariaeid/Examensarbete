@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { IconContext } from "react-icons";
-import { FiChevronRight } from "react-icons/fi";
 
 import ProjectSummary from "../ProjectSummary";
 
