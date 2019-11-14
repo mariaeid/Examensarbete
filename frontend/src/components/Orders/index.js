@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 import Buyer from "../Buyer";
 import Product from "../Product";
+import { serverAddress } from "../../config.js";
 
 import styles from "./index.module.scss";
+
+const base_url = serverAddress;
 
 class Orders extends Component {
   constructor(props) {
@@ -21,37 +25,35 @@ class Orders extends Component {
   }
 
   async componentDidMount() {
-    let cartsData;
-    let productsData;
-    let buyersData;
     try {
-      const resProd = await fetch("http://127.0.0.1:8000/api/cart");
-      const carts = await resProd.json();
-      cartsData = carts;
-    } finally {
-      // console.log("CartData");
+      axios.get(base_url + "/api/cart").then(res => {
+        this.setState({
+          carts: res.data
+        });
+      });
+    } catch (e) {
+      console.log("Error", e);
     }
 
     try {
-      const resProd = await fetch("http://127.0.0.1:8000/api/product");
-      const products = await resProd.json();
-      productsData = products;
-    } finally {
-      // console.log("ProductsData");
+      axios.get(base_url + "/api/product").then(res => {
+        this.setState({
+          products: res.data
+        });
+      });
+    } catch (e) {
+      console.log("Error", e);
     }
 
     try {
-      const resProd = await fetch("http://127.0.0.1:8000/api/buyer");
-      const buyers = await resProd.json();
-      buyersData = buyers;
-    } finally {
-      // console.log("buyersData");
+      axios.get(base_url + "/api/buyer").then(res => {
+        this.setState({
+          buyers: res.data
+        });
+      });
+    } catch (e) {
+      console.log("Error", e);
     }
-    this.setState({
-      carts: cartsData,
-      products: productsData,
-      buyers: buyersData
-    });
   }
 
   getProductIdsForBuyerFromCart(buyerId) {
