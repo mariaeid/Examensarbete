@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, AnimateScroll as Scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import { IconContext } from "react-icons";
 import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoTwitter } from "react-icons/io";
