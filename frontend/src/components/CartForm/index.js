@@ -36,7 +36,6 @@ class CartForm extends React.Component {
           className={styles.cartForm}
           onSubmit={e => {
             this.props.handle_cart(e, this.state);
-            // this.props.handle_update_cart(e, this.state);
           }}
         >
           <h4>Lägg till vara i beställning</h4>
