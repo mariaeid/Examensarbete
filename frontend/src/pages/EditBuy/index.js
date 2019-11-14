@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Route, Redirect } from "react-router";
+// import { withRouter } from "react-router-dom";
+// import { Route, Redirect } from "react-router";
 
 import Logout from "../../components/Logout";
-import EditOrder from "../../components/EditOrder";
+// import EditOrder from "../../components/EditOrder";
 import EditBuyerForm from "../../components/EditBuyerForm";
 
 import styles from "./index.module.scss";

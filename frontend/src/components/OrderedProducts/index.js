@@ -49,7 +49,7 @@ class OrderedProducts extends Component {
               price={product.price}
             />
           );
-        }
+        } else return null;
       });
     });
 

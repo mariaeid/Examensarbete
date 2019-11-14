@@ -57,18 +57,17 @@ class Orders extends Component {
   getProductIdsForBuyerFromCart(buyerId) {
     return this.state.carts.map(cart => {
       return this.state.products.map(product => {
-        if (cart.buyerId === buyerId)
-          if (cart.productId === product.productId) {
-            return (
-              <div key={product.productId}>
-                <Product
-                  key={cart.productId}
-                  name={product.name}
-                  price={product.price}
-                />
-              </div>
-            );
-          }
+        if (cart.buyerId === buyerId && cart.productId === product.productId) {
+          return (
+            <div key={product.productId}>
+              <Product
+                key={cart.productId}
+                name={product.name}
+                price={product.price}
+              />
+            </div>
+          );
+        } else return null;
       });
     });
   }
