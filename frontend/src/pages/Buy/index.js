@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Route, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 import Logout from "../../components/Logout";
 import CurrentBuyer from "../../components/CurrentBuyer";
