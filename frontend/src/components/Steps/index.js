@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import Step from "../Step";
+import { serverAddress } from "../../config.js";
 
 import styles from "./index.module.scss";
+
+const base_url = serverAddress;
 
 class Steps extends Component {
   state = {
@@ -11,13 +15,13 @@ class Steps extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/steps"); // fetching the data from api, before the page loaded
-      const steps = await res.json();
-      this.setState({
-        steps
+      axios.get(base_url + "/api/steps").then(res => {
+        this.setState({
+          steps: res.data
+        });
       });
     } catch (e) {
-      console.log(e);
+      console.log("Error", e);
     }
   }
 
