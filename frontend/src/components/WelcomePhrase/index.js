@@ -7,8 +7,8 @@ const WelcomePhrase = props => {
   return <p className={styles.newUserText}>{props.text}</p>;
 };
 
+export default WelcomePhrase;
+
 WelcomePhrase.propTypes = {
   text: PropTypes.string.isRequired
 };
-
-export default WelcomePhrase;
