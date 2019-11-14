@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Route, Redirect } from "react-router";
+import axios from "axios";
 
 import Buyer from "../Buyer";
+import { serverAddress } from "../../config.js";
 
-import styles from "./index.module.scss";
+const base_url = serverAddress;
 
 class Buyers extends Component {
   state = {
@@ -14,13 +14,13 @@ class Buyers extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/buyer");
-      const buyers = await res.json();
-      this.setState({
-        buyers
+      axios.get(base_url + "/api/buyer").then(res => {
+        this.setState({
+          buyers: res.data
+        });
       });
     } catch (e) {
-      console.log(e);
+      console.log("Error", e);
     }
   }
 
