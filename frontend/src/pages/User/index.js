@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 import Logout from "../../components/Logout";
 import BuyerForm from "../../components/BuyerForm";
@@ -23,7 +23,6 @@ class User extends Component {
       zipCode: "",
       city: "",
       phone: "",
-      buyerId: "",
       displayed_form: ""
     };
   }
