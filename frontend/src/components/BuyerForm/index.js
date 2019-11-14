@@ -13,7 +13,7 @@ class BuyerForm extends React.Component {
       zipCode: "",
       city: "",
       phone: "",
-      username: "",
+      sellerName: "",
       buyerId: ""
     };
   }
@@ -28,7 +28,7 @@ class BuyerForm extends React.Component {
   componentDidMount() {
     this.generateRandomNumber();
     this.setState({
-      username: this.props.loggedInUsername
+      sellerName: this.props.loggedInUsername
     });
   }
 
@@ -98,7 +98,11 @@ class BuyerForm extends React.Component {
             onChange={this.handle_change}
             required
           />
-          <input type="hidden" name="username" value={this.state.username} />
+          <input
+            type="hidden"
+            name="sellerName"
+            value={this.state.sellerName}
+          />
           <input type="hidden" name="buyerId" value={this.state.buyerId} />
           <input
             className={styles.submit}
