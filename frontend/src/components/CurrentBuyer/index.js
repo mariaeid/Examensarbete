@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import Buyer from "../Buyer";
 
-import styles from "./index.module.scss";
-
 class Buyers extends Component {
   state = {
     buyers: []

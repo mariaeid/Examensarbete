@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
 
 import LoginSignUp from "../LoginSignUp";
 import LoginForm from "../LoginForm";

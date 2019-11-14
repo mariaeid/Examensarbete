@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FiChevronsDown } from "react-icons/fi";
 import { IconContext } from "react-icons";
-import { Link, AnimateScroll as Scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 import Auth from "../Auth";
 
