@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import ProjectSummary from "../ProjectSummary";
+import { serverAddress } from "../../config.js";
 
 import styles from "./index.module.scss";
+
+const base_url = serverAddress;
 
 class Projects extends Component {
   state = {
@@ -11,15 +15,13 @@ class Projects extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(
-        "http://127.0.0.1:8000/api/environmentalProjects"
-      ); // fetching the data from api, before the page loaded
-      const projects = await res.json();
-      this.setState({
-        projects
+      axios.get(base_url + "/api/environmentalProjects").then(res => {
+        this.setState({
+          projects: res.data
+        });
       });
     } catch (e) {
-      console.log(e);
+      console.log("Error", e);
     }
   }
 
@@ -43,11 +45,3 @@ class Projects extends Component {
 }
 
 export default Projects;
-
-// <div className={styles.iconContainer}>
-// <IconContext.Provider value={{ color: "black", size: "4rem" }}>
-// <div className={styles.icon}>
-// <FiChevronRight onClick={this.handleRightClicked} />
-// </div>
-// </IconContext.Provider>
-// </div>

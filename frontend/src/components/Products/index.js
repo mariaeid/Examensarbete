@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import Product from "../Product";
+import { serverAddress } from "../../config.js";
+
+const base_url = serverAddress;
 
 class Products extends Component {
   state = {
@@ -10,22 +14,23 @@ class Products extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/cart");
-      const carts = await res.json();
-      this.setState({
-        carts
+      axios.get(base_url + "/api/cart").then(res => {
+        this.setState({
+          carts: res.data
+        });
       });
     } catch (e) {
-      console.log(e);
+      console.log("Error", e);
     }
+
     try {
-      const resProd = await fetch("http://127.0.0.1:8000/api/product");
-      const products = await resProd.json();
-      this.setState({
-        products
+      axios.get(base_url + "/api/product").then(res => {
+        this.setState({
+          products: res.data
+        });
       });
     } catch (e) {
-      console.log(e);
+      console.log("Error", e);
     }
   }
 
