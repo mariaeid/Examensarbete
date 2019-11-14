@@ -33,7 +33,7 @@ class Buyers extends Component {
   render() {
     const buyerFilter = array => {
       return array.filter(buyer => {
-        if (buyer.username === this.props.loggedInUsername) {
+        if (buyer.sellerName === this.props.loggedInUsername) {
           return true;
         }
         return false;

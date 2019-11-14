@@ -92,15 +92,13 @@ class User extends Component {
     return (
       <div className={styles.container}>
         <Logout />
-        <p>
-          {localStorage.getItem("username") ? (
-            <WelcomePhrase
-              text={"Inloggad som " + localStorage.getItem("username")}
-            />
-          ) : (
-            <WelcomePhrase text="Välkommen som ny användare!" />
-          )}
-        </p>
+        {localStorage.getItem("username") ? (
+          <WelcomePhrase
+            text={"Inloggad som " + localStorage.getItem("username")}
+          />
+        ) : (
+          <WelcomePhrase text="Välkommen som ny användare!" />
+        )}
         <RegisterBuy display_form={this.display_form} />
         {form}
         <Orders loggedInUsername={this.state.username} />

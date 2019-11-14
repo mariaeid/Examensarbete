@@ -139,7 +139,7 @@ class EditBuyerForm extends Component {
                   onChange={this.handle_change}
                   placeholder={buyer.phone}
                 />
-                <input type="hidden" name="username" value={buyer.username} />
+                <input type="hidden" name="username" value={buyer.sellerName} />
                 <input type="hidden" name="buyerId" value={buyer.buyerId} />
                 <input type="submit" value="Spara kunduppgifter" />
               </form>
