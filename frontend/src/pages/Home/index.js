@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router";
+import { Redirect } from "react-router";
 import axios from "axios";
 
 import Hero from "../../components/Hero";
