@@ -6,6 +6,7 @@ import Logout from "../../components/Logout";
 import CurrentBuyer from "../../components/CurrentBuyer";
 import OrderedProducts from "../../components/OrderedProducts";
 import CartForm from "../../components/CartForm";
+import SubmitBuy from "../../components/SubmitBuy";
 
 import styles from "./index.module.scss";
 
@@ -87,22 +88,14 @@ class Buy extends Component {
         <CartForm
           currentBuyer={this.props.location.state.currentBuyer}
           handle_cart={this.handle_cart}
-          // handle_update_cart={this.handle_update_cart}
         />
         <OrderedProducts
           currentBuyer={this.props.location.state.currentBuyer}
         />
+        <SubmitBuy />
       </div>
     );
   }
 }
 
 export default withRouter(Buy);
-
-// console.log(this.state.username);
-// if (!this.state.username) {
-//   return <Redirect to="/" />;
-// } else {
-//
-//
-//
