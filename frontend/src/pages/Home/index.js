@@ -68,15 +68,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-// <Route
-//   exact
-//   path="/"
-//   // render={() =>
-//   //   localStorage.getItem("access_token") ? (
-//   //     <Redirect to="/user" />
-//   //   ) : (
-//   //     <Redirect to="/" />
-//   //   )
-//   // }
-// />
