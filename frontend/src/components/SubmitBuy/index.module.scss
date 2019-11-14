@@ -1,0 +1,31 @@
+@import "../../variables.scss";
+
+.submitBuyContainer {
+  display: flex;
+  justify-content: center;
+
+  .submitBuyButton {
+    padding: 0.5rem 3rem;
+
+    color: $defaultTextColorDark;
+    background-color: $highLight;
+    border: 2px solid $highLight;
+    border-radius: 50px;
+    outline: none;
+
+    font-family: "Muli", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 125%;
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    transition: 0.5s;
+  }
+  .submitBuyButton:hover,
+  .submitBuyButton:focus {
+    box-shadow: inset 0 0 0 2em #e98325;
+    border-color: #e98325;
+  }
+}
