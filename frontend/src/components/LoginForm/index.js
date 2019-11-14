@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { MdClose } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { handle_login } from "../../utils/JWTAuth.js";
