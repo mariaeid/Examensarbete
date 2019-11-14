@@ -12,7 +12,6 @@ class RegisterBuy extends Component {
             this.props.display_form("buy");
           }}
         >
-          {" "}
           Registrera nytt köp
         </button>
       </div>

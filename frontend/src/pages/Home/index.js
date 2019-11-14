@@ -26,15 +26,6 @@ class Home extends Component {
         mainContents: res.data
       });
     });
-    // try {
-    //   const res = await fetch(base_url + "/mainContent");
-    //   const mainContents = await res.json();
-    //   this.setState({
-    //     mainContents
-    //   });
-    // } catch (e) {
-    //   console.log(e);
-    // }
   }
 
   render() {
