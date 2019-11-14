@@ -1,7 +1,6 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
 import { IconContext } from "react-icons";
-// import { handle_login } from "../../utils/JWTAuth.js";
 
 import styles from "./index.module.scss";
 
