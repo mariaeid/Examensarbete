@@ -63,4 +63,4 @@ class Buy extends Component {
   }
 }
 
-export default withRouter(Buy);
+export default Buy;
