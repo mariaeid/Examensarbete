@@ -83,15 +83,17 @@ class Buy extends Component {
     return (
       <div className={styles.container}>
         <Logout />
-        <h4 className={styles.buyerTitle}>Köpare</h4>
-        <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
-        <CartForm
-          currentBuyer={this.props.location.state.currentBuyer}
-          handle_cart={this.handle_cart}
-        />
-        <OrderedProducts
-          currentBuyer={this.props.location.state.currentBuyer}
-        />
+        <div className={styles.mainContainer}>
+          <h4 className={styles.buyerTitle}>Köpare</h4>
+          <CurrentBuyer currentBuyer={this.props.location.state.currentBuyer} />
+          <CartForm
+            currentBuyer={this.props.location.state.currentBuyer}
+            handle_cart={this.handle_cart}
+          />
+          <OrderedProducts
+            currentBuyer={this.props.location.state.currentBuyer}
+          />
+        </div>
         <SubmitBuy />
       </div>
     );
