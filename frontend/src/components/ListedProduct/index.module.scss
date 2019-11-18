@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: $distanceSmall;
+  width: 80%;
+
+  .productDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0.5rem;
+
+    .productName {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .productImage {
+    object-fit: cover;
+  }
+}
