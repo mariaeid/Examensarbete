@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 import Buyer from "../Buyer";
@@ -111,5 +110,3 @@ class Orders extends Component {
   }
 }
 export default Orders;
-
-// <NavLink to={`editBuy/${buyer.buyerId}`}>Ändra</NavLink>
