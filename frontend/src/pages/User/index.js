@@ -13,8 +13,6 @@ class User extends Component {
     super(props);
     this.state = {
       username: localStorage.getItem("username"),
-      userFirstName: localStorage.getItem("first_name"),
-      userLastName: localStorage.getItem("last_name"),
       buyerId: "",
       firstName: "",
       lastName: "",
@@ -27,7 +25,6 @@ class User extends Component {
   }
 
   handle_buy = (e, data) => {
-    console.log(data);
     e.preventDefault();
     fetch("http://127.0.0.1:8000/api/buyer/", {
       method: "POST",
