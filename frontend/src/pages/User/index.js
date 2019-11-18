@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 
-import Logout from "../../components/Logout";
+import Navbar from "../../components/Navbar";
 import BuyerForm from "../../components/BuyerForm";
 import RegisterBuy from "../../components/RegisterBuy";
 import Orders from "../../components/Orders";
-import WelcomePhrase from "../../components/WelcomePhrase";
 
 import styles from "./index.module.scss";
 
@@ -25,22 +24,6 @@ class User extends Component {
       phone: "",
       displayed_form: ""
     };
-  }
-
-  componentDidMount() {
-    // fetch("http://localhost:8000/core/current_user/", {
-    //   headers: {
-    //     Authorization: `JWT ${localStorage.getItem("access_token")}`
-    //   }
-    // })
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     this.setState({
-    //       username: json.username
-    //     });
-    //   });
-    // console.log("Username from User", this.state.username);
-    // console.log("firstName from User", this.state.userFirstName);
   }
 
   handle_buy = (e, data) => {
@@ -98,16 +81,14 @@ class User extends Component {
       default:
         form = null;
     }
-
     return (
-      <div className={styles.container}>
-        <Logout />
-        <WelcomePhrase
-          text={"Inloggad som " + localStorage.getItem("username")}
-        />
-        <RegisterBuy display_form={this.display_form} />
-        {form}
-        <Orders loggedInUsername={this.state.username} />
+      <div>
+        <Navbar />
+        <div className={styles.container}>
+          <RegisterBuy display_form={this.display_form} />
+          {form}
+          <Orders loggedInUsername={this.state.username} />
+        </div>
       </div>
     );
   }

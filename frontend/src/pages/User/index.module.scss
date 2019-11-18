@@ -3,5 +3,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin: $distanceSmall;
+  min-height: 100vh;
+  padding: $distanceSmall;
+  background-color: $defaultBackgroundDark;
+  color: $defaultTextColorLight;
+
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
