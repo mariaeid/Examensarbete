@@ -10,8 +10,7 @@ const base_url = serverAddress;
 
 class Projects extends Component {
   state = {
-    projects: [],
-    expanded: false
+    projects: []
   };
 
   async componentDidMount() {
@@ -26,36 +25,18 @@ class Projects extends Component {
     }
   }
 
-  toBeExpanded = e => {
-    e.preventDefault();
-    console.log("Clicked");
-    this.setState(
-      {
-        expanded: true
-      },
-      () => {
-        console.log(this.state.expanded, "expanded");
-      }
-    );
-  };
-
   render() {
     return (
       <div className={styles.container}>
         <div className={styles.projectsContainer}>
           {this.state.projects.map(project => (
-            <div>
-              <Project
-                key={project.id}
-                title={project.title}
-                intro={project.intro}
-                image={project.image}
-                fullDescription={
-                  this.state.expanded ? project.fullDescription : null
-                }
-              />
-              <button onClick={this.toBeExpanded}>Läs mer</button>
-            </div>
+            <Project
+              key={project.id}
+              title={project.title}
+              intro={project.intro}
+              image={project.image}
+              fullDescription={project.fullDescription}
+            />
           ))}
         </div>
       </div>
