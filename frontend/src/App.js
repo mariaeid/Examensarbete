@@ -16,12 +16,6 @@ function App() {
           <Route path="/products" exact strict component={Products} />
           <Route path="/user" exact strict component={User} />
           <Route path="/buy" exact strict component={Buy} />
-          <Route
-            path="/editBuy/:currentBuyerId"
-            exact
-            strict
-            component={EditBuy}
-          />
         </div>
       </div>
     </Router>
