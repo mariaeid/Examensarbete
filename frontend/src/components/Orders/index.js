@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 import Buyer from "../Buyer";
@@ -86,21 +86,23 @@ class Orders extends Component {
 
     const filteredItems = buyerFilter(this.state.buyers).map(buyer => {
       return (
-        <div key={buyer.buyerId} className={styles.orderContainer}>
-          <Buyer
-            firstName={buyer.firstName}
-            lastName={buyer.lastName}
-            streetAddress={buyer.streetAddress}
-            zipCode={buyer.zipCode}
-            city={buyer.city}
-            phone={buyer.phone}
-          />
-          <div className={styles.productInfo}>
-            <p>Namn</p>
-            <p>Pris</p>
+        <div className={styles.ordersContainer}>
+          <div key={buyer.buyerId} className={styles.orderContainer}>
+            <p className={styles.buyerText}>Köpare:</p>
+            <Buyer
+              firstName={buyer.firstName}
+              lastName={buyer.lastName}
+              streetAddress={buyer.streetAddress}
+              zipCode={buyer.zipCode}
+              city={buyer.city}
+              phone={buyer.phone}
+            />
+            <div className={styles.productInfo}>
+              <p>Namn</p>
+              <p>Pris</p>
+            </div>
+            {this.getProductIdsForBuyerFromCart(buyer.buyerId)}
           </div>
-          {this.getProductIdsForBuyerFromCart(buyer.buyerId)}
-          <NavLink to={`editBuy/${buyer.buyerId}`}>Ändra</NavLink>
         </div>
       );
     });
@@ -109,3 +111,5 @@ class Orders extends Component {
   }
 }
 export default Orders;
+
+// <NavLink to={`editBuy/${buyer.buyerId}`}>Ändra</NavLink>
