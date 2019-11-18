@@ -34,7 +34,6 @@ class Auth extends Component {
           password: data.password
         }
       }).then(response => {
-        console.log("Res", response);
         localStorage.setItem("access_token", response.data.token);
         localStorage.setItem("username", response.data.user.username);
         this.setState({
@@ -62,7 +61,6 @@ class Auth extends Component {
           last_name: data.last_name
         }
       }).then(response => {
-        console.log("Res", response);
         localStorage.setItem("access_token", response.data.token);
         localStorage.setItem("username", response.data.username);
         this.setState({
@@ -81,8 +79,6 @@ class Auth extends Component {
   };
 
   render() {
-    console.log("lokalbutiken", localStorage.getItem("username"));
-
     if (localStorage.getItem("access_token")) {
       return <Redirect to="/user" />;
     }
