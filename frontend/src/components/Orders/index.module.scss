@@ -1,20 +1,45 @@
 @import "../../variables.scss";
 
-.orderContainer {
-  margin: $distanceSmall;
-  padding: $distanceSmall;
-  width: 50%;
+.ordersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  border: 2px solid $highLight;
-  border-radius: 10px;
+  .orderContainer {
+    margin: $distanceSmall;
+    padding: $distanceSmall;
+    width: 40%;
+    background-color: #fff;
+    color: $defaultBackgroundDark;
+
+    border: 2px solid $highLight;
+    border-radius: 10px;
+
+    .buyerText {
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .productInfo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 0.2rem;
+      padding-bottom: 0.2rem;
+      width: 25%;
+      border-bottom: solid 0.1px #7d3d00;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .orderContainer {
+    width: 80% !important;
+    margin: 0.5rem !important;
+  }
 
   .productInfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 0.2rem;
-    padding-bottom: 0.2rem;
-    width: 25%;
-    border-bottom: solid 0.1px #7d3d00;
+    width: 50% !important;
   }
 }
