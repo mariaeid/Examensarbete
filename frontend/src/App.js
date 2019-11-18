@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import User from "./pages/User";
 import Buy from "./pages/Buy";
-import EditBuy from "./pages/EditBuy";
 
 function App() {
   return (
