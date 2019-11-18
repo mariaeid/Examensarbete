@@ -38,8 +38,8 @@ class CartForm extends React.Component {
             this.props.handle_cart(e, this.state);
           }}
         >
-          <h4>Lägg till vara i beställning</h4>
-          <label htmlFor="firstName">Artikelnummer:</label>
+          <h4>Lägg till vara i beställning:</h4>
+          <label htmlFor="firstName">Artikelnummer</label>
           <input
             type="number"
             name="productId"
