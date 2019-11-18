@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { Redirect } from "react-router";
 
 import Logout from "../../components/Logout";
@@ -16,8 +15,7 @@ class Buy extends Component {
     this.state = {
       username: localStorage.getItem("username"),
       buyerId: "",
-      productId: "",
-      updated: false
+      productId: ""
     };
   }
 
