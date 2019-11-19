@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./index.module.scss";
 
-const OrderedProduct = props => {
+const AddedProduct = props => {
   return (
     <div className={styles.container}>
       <p>
@@ -16,9 +16,9 @@ const OrderedProduct = props => {
   );
 };
 
-OrderedProduct.propTypes = {
+AddedProduct.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired
 };
 
-export default OrderedProduct;
+export default AddedProduct;

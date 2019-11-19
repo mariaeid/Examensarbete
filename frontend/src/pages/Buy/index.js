@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 
 import Logout from "../../components/Logout";
 import CurrentBuyer from "../../components/CurrentBuyer";
-import OrderedProducts from "../../components/OrderedProducts";
+import AddedProducts from "../../components/AddedProducts";
 import CartForm from "../../components/CartForm";
 import SubmitBuy from "../../components/SubmitBuy";
 
@@ -53,7 +53,7 @@ class Buy extends Component {
             currentBuyer={this.props.location.state.currentBuyer}
             handle_cart={this.handle_cart}
           />
-          <OrderedProducts
+          <AddedProducts
             currentBuyer={this.props.location.state.currentBuyer}
           />
         </div>

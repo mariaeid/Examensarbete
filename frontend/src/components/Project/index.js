@@ -9,7 +9,7 @@ const Project = props => {
       <img src={props.image} alt={props.title} />
       <div className={styles.textContainer}>
         <p className={styles.title}>{props.title}</p>
-        <p>{props.intro}</p>
+        <p className={styles.intro}>{props.intro}</p>
         <p>{props.fullDescription}</p>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import OrderedProduct from "../OrderedProduct";
+import AddedProduct from "../AddedProduct";
 
-class OrderedProducts extends Component {
+class AddedProducts extends Component {
   state = {
     products: [],
     carts: []
@@ -43,7 +43,7 @@ class OrderedProducts extends Component {
       return this.state.products.map(product => {
         if (product.productId === cart.productId) {
           return (
-            <OrderedProduct
+            <AddedProduct
               key={product.productId}
               name={product.name}
               price={product.price}
@@ -57,4 +57,4 @@ class OrderedProducts extends Component {
   }
 }
 
-export default OrderedProducts;
+export default AddedProducts;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Buyer from "../Buyer";
-import Product from "../Product";
+import Order from "../Order";
 import { serverAddress } from "../../config.js";
 
 import styles from "./index.module.scss";
@@ -61,7 +61,7 @@ class Orders extends Component {
         if (cart.buyerId === buyerId && cart.productId === product.productId) {
           return (
             <div key={product.productId}>
-              <Product
+              <Order
                 key={cart.productId}
                 name={product.name}
                 price={product.price}
