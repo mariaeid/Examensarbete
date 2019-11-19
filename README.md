@@ -24,7 +24,7 @@ The back-end of the site was built with the Pyhton web framework Django and the 
 $ git clone https://github.com/mariaeid/Examensarbete.git
 ```
 
-2. Setting up the back-end:
+1. Setting up the back-end:
   1. Install dependencies and packages
   ```
   pipenv shell
@@ -34,7 +34,7 @@ $ git clone https://github.com/mariaeid/Examensarbete.git
   pipenv install --dev
   ```
 
-  2. Start running the project by cd into backend and run
+  1. Start running the project by cd into backend and run
 
   ```
   python manage.py runserver
