@@ -4,7 +4,7 @@
 
 This project was done as the final school assignment at WU18, Yrgo. The goal was to try out and learn new techniques that we had not been working with before.
 The purpose of the site I have built is to connect sales of products with investment in environmental friendly projects such as solar panels in Africa.
-One part of the site is open for everyone and provides information about the concept and information about the projects while the other is intended to be used by the sellers in order to register orders and display available products.
+One part of the site is open for everyone and provides information about the concept and information about the projects while the other is intended to be used by the sellers to register orders and display available products.
 
 ## Techniques
 
