@@ -12,9 +12,9 @@ The back-end of the site was built with the Pyhton web framework Django and the 
 
 ### Requirements
 
-- https://www.python.org/downloads/ - Python3
-- https://github.com/pypa/pipenv - Pipenv
-- https://nodejs.org/en/download/ - Node.js
+- [Python3](https://www.python.org/downloads/)
+- [Pipenv](https://github.com/pypa/pipenv)
+- [Node.js](https://nodejs.org/en/download/)
 
 ### Installation
 
@@ -24,34 +24,28 @@ The back-end of the site was built with the Pyhton web framework Django and the 
 $ git clone https://github.com/mariaeid/Examensarbete.git
 ```
 
-1. Setting up the back-end:
-  1. Install dependencies and packages
-  ```
-  pipenv shell
-  ```
-
-  ```
-  pipenv install --dev
-  ```
-
-  1. Start running the project by cd into backend and run
-
-  ```
-  python manage.py runserver
-  ```
+2. Setting up the back-end:
+   1. Install dependencies and packages
+   ```
+   pipenv shell
+   ```
+   ```
+   pipenv install --dev
+   ```
+   2. Start running the project by cd into backend and run
+   ```
+   python manage.py runserver
+   ```
 
 3. Setting up the front-end
-  1. Install dependencies and packages, cd into frontend
-
-  ```
-  npm install
-  ```
-
-  2. Start running the project
-
-  ```
-  npm run start
-  ```
+   1. Install dependencies and packages, cd into frontend
+   ```
+   npm install
+   ```
+   2. Start running the project
+   ```
+   npm run start
+   ```
 
 #### Developer
 
