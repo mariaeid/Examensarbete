@@ -37,7 +37,7 @@ $ git clone https://github.com/mariaeid/Examensarbete.git
    python manage.py runserver
    ```
 
-3. Setting up the front-end
+3. Setting up the front-end:
    1. Install dependencies and packages, cd into frontend
    ```
    npm install
