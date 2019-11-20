@@ -11,7 +11,7 @@ class Hero extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoURL: `${process.env.PUBLIC_URL}/videos/windTurbineFull.mp4`,
+      videoURL: `${process.env.PUBLIC_URL}/videos/forest.mp4`,
       username: ""
     };
   }
