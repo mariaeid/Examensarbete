@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -80,5 +80,11 @@
       box-shadow: inset 0 0 0 2em #e98325;
       border-color: #e98325;
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .signupFormContainer {
+    width: 90%;
   }
 }
